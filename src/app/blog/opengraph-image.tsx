@@ -1,8 +1,10 @@
- 
+
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { DATA } from "@/data/resume";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 
 export const alt = "Blog";
 export const size = {
@@ -14,17 +16,29 @@ export const contentType = "image/png";
 const getFontData = async () => {
     try {
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL("../../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL("../../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
+            readFile(path.join(process.cwd(), "public/fonts/CabinetGrotesk-Medium.ttf")),
+            readFile(path.join(process.cwd(), "public/fonts/ClashDisplay-Semibold.ttf")),
         ]);
         return { cabinetGrotesk, clashDisplay };
     } catch (error) {
         console.error("Failed to load fonts:", error);
         return null;
+    }
+};
+
+const getAvatarDataUrl = async () => {
+    if (!DATA.avatarUrl) return undefined;
+    try {
+        const localPath = DATA.avatarUrl.startsWith("/")
+            ? DATA.avatarUrl.slice(1)
+            : DATA.avatarUrl;
+        const buffer = await readFile(path.join(process.cwd(), "public", localPath));
+        const ext = path.extname(localPath).slice(1).toLowerCase();
+        const mime = ext === "jpg" ? "image/jpeg" : `image/${ext || "png"}`;
+        return `data:${mime};base64,${buffer.toString("base64")}`;
+    } catch (error) {
+        console.error("Failed to load avatar:", error);
+        return undefined;
     }
 };
 
@@ -110,9 +124,7 @@ export default async function Image() {
         const fontData = await getFontData();
         const title = "Blog";
         const description = "Thoughts on software development, life, and more.";
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const imageUrl = await getAvatarDataUrl();
 
         return new ImageResponse(
             (

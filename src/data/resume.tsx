@@ -1,3 +1,4 @@
+import React from "react";
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
@@ -241,7 +242,7 @@ export const DATA = {
       description:
         "Selected from a competitive applicant pool (12 students) for Kookmin's flagship six-month program combining project-based training with US-based internship placement.",
       image: "",
-      links: [],
+      links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
       title: "2nd Place — Global Co-Prosperity Academic Conference",
@@ -250,7 +251,7 @@ export const DATA = {
       description:
         "Divers(C)ity — a global platform for migrant worker rights. Selected from 10 finalist teams (37 students).",
       image: "",
-      links: [],
+      links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
       title: "2nd Place — MIS × Finance Academic Conference",
@@ -259,7 +260,7 @@ export const DATA = {
       description:
         "AI-based Pet Insurance Platform. Concept proposal combining AI recommendation systems, wearable health data, and insurance service design.",
       image: "",
-      links: [],
+      links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
   ],
 } as const;
