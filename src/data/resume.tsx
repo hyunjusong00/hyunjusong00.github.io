@@ -66,7 +66,7 @@ export const DATA = {
   work: [
     {
       company: "Trywebb",
-      href: "#",
+      href: "https://try-flow-ten.vercel.app/",
       badges: [],
       location: "Irvine, CA",
       title: "Product Manager",
@@ -146,7 +146,7 @@ export const DATA = {
   projects: [
     {
       title: "Trywebb",
-      href: "#",
+      href: "https://try-flow-ten.vercel.app/",
       dates: "2026 · In Progress",
       active: true,
       description:
