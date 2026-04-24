@@ -21,7 +21,7 @@ function ProjectImage({ src, alt, fit }: { src: string; alt: string; fit?: "cove
       alt={alt}
       className={cn(
         "w-full h-48",
-        fit === "contain" ? "object-contain bg-background p-6" : "object-cover"
+        fit === "contain" ? "object-contain bg-white p-6" : "object-cover"
       )}
       onError={() => setImageError(true)}
     />
