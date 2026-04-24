@@ -47,6 +47,8 @@ export default function ProjectsSection() {
                                 tags={project.technologies}
                                 image={project.image}
                                 imageFit={"imageFit" in project ? (project as { imageFit?: "cover" | "contain" }).imageFit : undefined}
+                                imageBg={"imageBg" in project ? (project as { imageBg?: string }).imageBg : undefined}
+                                imageAspect={"imageAspect" in project ? (project as { imageAspect?: string }).imageAspect : undefined}
                                 video={project.video}
                                 links={project.links}
                             />

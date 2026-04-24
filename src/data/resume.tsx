@@ -196,7 +196,8 @@ export const DATA = {
         "Team Lead",
       ],
       links: [],
-      image: "/welfarelink-prototype.png",
+      image: "/welfarelink.png",
+      imageAspect: "1706/954",
       video: "",
     },
     {
