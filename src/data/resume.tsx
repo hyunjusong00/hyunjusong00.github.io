@@ -9,7 +9,7 @@ export const DATA = {
   location: "Irvine, CA",
   locationLink: "https://www.google.com/maps/place/irvine+ca",
   description:
-    "Product Manager bridging Korea and the US. Currently leading product at Trywebb, an AI-powered idea validation tool, through Kookmin University's Global PBL Program.",
+    "Product Manager bridging Korea and the US. Currently leading product at Trywebb, an AI-powered idea validation tool, and driving design at Sellii, an AI deal-hunting agent, through Kookmin University's Global PBL Program.",
   summary:
     "I build products at the intersection of business, technology, and user experience — always with a question in mind: how can AI and data actually help people, not just automate things? Currently based in Irvine, California through Kookmin's Global PBL Program (AI for Business track), where I lead product at [Trywebb](#projects) and drive design and launch content at [Sellii](#projects). Background in Management Information Systems and Software Engineering. [Authorized to work in the US through J-1 Academic Training.](#contact)",
   avatarUrl: "/me.png",
