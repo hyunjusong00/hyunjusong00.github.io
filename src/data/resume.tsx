@@ -254,7 +254,7 @@ export const DATA = {
     },
     {
       title: "AI Pet Insurance Platform",
-      href: "#",
+      href: "/petinsurance.jpg",
       dates: "2023 · 2nd Place",
       active: false,
       description:
