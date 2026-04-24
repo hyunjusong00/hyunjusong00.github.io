@@ -249,6 +249,7 @@ export const DATA = {
       ],
       links: [],
       image: "/instagram-logo.png",
+      imageFit: "contain" as const,
       video: "",
     },
     {
