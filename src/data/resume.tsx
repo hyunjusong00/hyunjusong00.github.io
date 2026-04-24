@@ -201,7 +201,7 @@ export const DATA = {
     },
     {
       title: "Divers(C)ity",
-      href: "#",
+      href: "/Diver(c)ity-award.jpg",
       dates: "2025 · 2nd Place",
       active: false,
       description:
