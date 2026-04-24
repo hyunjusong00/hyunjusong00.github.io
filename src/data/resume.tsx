@@ -27,7 +27,7 @@ export const DATA = {
     { name: "Notion" },
     { name: "Git" },
     { name: "Korean (Native)" },
-    { name: "English (Professional)" },
+    { name: "English (Working)" },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
