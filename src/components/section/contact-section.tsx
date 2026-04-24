@@ -26,8 +26,7 @@ export default function ContactSection() {
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           Open to product roles in the US — especially early-stage
           startups working on AI tooling. Authorized through J-1
-          Academic Training (March 2026 – August 2026). The fastest
-          way to reach me is{" "}
+          Academic Training. The fastest way to reach me is{" "}
           <Link
             href={DATA.contact.social.email.url}
             className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
