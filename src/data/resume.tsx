@@ -183,7 +183,7 @@ export const DATA = {
     },
     {
       title: "Welfare Link",
-      href: "#",
+      href: "https://www.figma.com/design/37saalrtyIOOSRwvX0PdOo/HCI-UX-%ED%98%81%EC%8B%A0?node-id=0-1&t=qNHB6alVQuBmImGO-1",
       dates: "2025",
       active: false,
       description:
@@ -218,7 +218,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Kookmin University Newspaper Website",
+      title: "Kookmin University Newspaper Website Redesign",
       href: "https://bizon.kookmin.ac.kr/bizon/index.do",
       dates: "2024",
       active: false,
@@ -230,7 +230,25 @@ export const DATA = {
         "Editorial Design",
       ],
       links: [],
-      image: "/kookmin-news.png",
+      image: "/bizon.png",
+      imageFit: "contain" as const,
+      video: "",
+    },
+    {
+      title: "Kookmin University Newspaper Instagram - Reels & Feed Direction",
+      href: "https://instagram.com/kmu_bizon",
+      dates: "2024",
+      active: false,
+      description:
+        "Planned and scripted Instagram Reels and feed content for @kmu_bizon as Editor-in-Chief, then partnered with the design team to bring each piece to life. Defined topic angles, narrative beats, and the visual tone before handoff. Instagram followers grew 1.5× within a semester.",
+      technologies: [
+        "Content Strategy",
+        "Reels & Feed Planning",
+        "Cross-team Collaboration",
+        "Social Media",
+      ],
+      links: [],
+      image: "/instagram-logo.png",
       video: "",
     },
     {
