@@ -197,7 +197,7 @@ export const DATA = {
       ],
       links: [],
       image: "/welfarelink.png",
-      imageAspect: "1706/954",
+      imageAspect: "1710/846",
       video: "",
     },
     {
