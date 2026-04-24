@@ -8,21 +8,41 @@ import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-function ProjectImage({ src, alt, fit }: { src: string; alt: string; fit?: "cover" | "contain" }) {
+function ProjectImage({
+  src,
+  alt,
+  fit,
+  bg,
+  aspect,
+}: {
+  src: string;
+  alt: string;
+  fit?: "cover" | "contain";
+  bg?: string;
+  aspect?: string;
+}) {
   const [imageError, setImageError] = useState(false);
+  const sizeClass = aspect ? "w-full" : "w-full h-48";
+  const sizeStyle = aspect ? { aspectRatio: aspect.replace("/", " / ") } : undefined;
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className={cn(sizeClass, "bg-muted")} style={sizeStyle} />;
   }
 
+  const isContain = fit === "contain";
   return (
     <img
       src={src}
       alt={alt}
       className={cn(
-        "w-full h-48",
-        fit === "contain" ? "object-contain bg-white p-6" : "object-cover"
+        sizeClass,
+        isContain ? "object-contain p-6" : "object-cover",
+        isContain && !bg ? "bg-white" : ""
       )}
+      style={{
+        ...sizeStyle,
+        ...(isContain && bg ? { backgroundColor: bg } : {}),
+      }}
       onError={() => setImageError(true)}
     />
   );
@@ -37,6 +57,8 @@ interface Props {
   link?: string;
   image?: string;
   imageFit?: "cover" | "contain";
+  imageBg?: string;
+  imageAspect?: string;
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -55,6 +77,8 @@ export function ProjectCard({
   link,
   image,
   imageFit,
+  imageBg,
+  imageAspect,
   video,
   links,
   className,
@@ -83,7 +107,7 @@ export function ProjectCard({
               className="w-full h-48 object-cover"
             />
           ) : image ? (
-            <ProjectImage src={image} alt={title} fit={imageFit} />
+            <ProjectImage src={image} alt={title} fit={imageFit} bg={imageBg} aspect={imageAspect} />
           ) : (
             <div className="w-full h-48 bg-muted" />
           )}
