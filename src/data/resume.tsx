@@ -70,7 +70,7 @@ export const DATA = {
       badges: [],
       location: "Irvine, CA",
       title: "Product Manager",
-      logoUrl: "/trywebb.png",
+      logoUrl: "/trywebb-logo.png",
       start: "April 2026",
       end: "Present",
       description:
@@ -160,7 +160,7 @@ export const DATA = {
         "SaaS",
       ],
       links: [],
-      image: "",
+      image: "/trywebb-landing.png",
       video: "",
     },
     {
@@ -178,7 +178,7 @@ export const DATA = {
         "Agent UX",
       ],
       links: [],
-      image: "",
+      image: "/sellii-discover.jpeg",
       video: "",
     },
     {
@@ -196,7 +196,7 @@ export const DATA = {
         "Team Lead",
       ],
       links: [],
-      image: "",
+      image: "/welfarelink-prototype.png",
       video: "",
     },
     {
@@ -214,7 +214,7 @@ export const DATA = {
         "Social Impact",
       ],
       links: [],
-      image: "",
+      image: "/workbridge-prototype.png",
       video: "",
     },
     {
@@ -230,7 +230,7 @@ export const DATA = {
         "Concept Design",
       ],
       links: [],
-      image: "",
+      image: "/petinsurance.png",
       video: "",
     },
   ],
@@ -241,7 +241,7 @@ export const DATA = {
       location: "Irvine, California",
       description:
         "Selected from a competitive applicant pool (12 students) for Kookmin's flagship six-month program combining project-based training with US-based internship placement.",
-      image: "",
+      image: "/kookmin.png",
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
@@ -250,7 +250,7 @@ export const DATA = {
       location: "Kookmin University HUSS",
       description:
         "Divers(C)ity — a global platform for migrant worker rights. Selected from 10 finalist teams (37 students).",
-      image: "",
+      image: "/kookmin.png",
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
@@ -259,7 +259,7 @@ export const DATA = {
       location: "Kookmin University",
       description:
         "AI-based Pet Insurance Platform. Concept proposal combining AI recommendation systems, wearable health data, and insurance service design.",
-      image: "",
+      image: "/kookmin.png",
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
   ],
