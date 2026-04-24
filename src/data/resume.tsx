@@ -218,6 +218,22 @@ export const DATA = {
       video: "",
     },
     {
+      title: "Kookmin University Newspaper Website",
+      href: "https://bizon.kookmin.ac.kr/bizon/index.do",
+      dates: "2024",
+      active: false,
+      description:
+        "Led a full redesign of the Kookmin University Newspaper website as Editor-in-Chief. Restructured information architecture, modernized the visual system, and rebuilt navigation around how readers actually browsed articles. Website traffic grew 40%+ within a semester.",
+      technologies: [
+        "Web Redesign",
+        "Information Architecture",
+        "Editorial Design",
+      ],
+      links: [],
+      image: "/kookmin-news.png",
+      video: "",
+    },
+    {
       title: "AI Pet Insurance Platform",
       href: "#",
       dates: "2023 · 2nd Place",
