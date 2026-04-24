@@ -46,6 +46,7 @@ export default function ProjectsSection() {
                                 dates={project.dates}
                                 tags={project.technologies}
                                 image={project.image}
+                                imageFit={"imageFit" in project ? (project as { imageFit?: "cover" | "contain" }).imageFit : undefined}
                                 video={project.video}
                                 links={project.links}
                             />

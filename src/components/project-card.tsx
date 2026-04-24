@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
+function ProjectImage({ src, alt, fit }: { src: string; alt: string; fit?: "cover" | "contain" }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
@@ -19,7 +19,10 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      className={cn(
+        "w-full h-48",
+        fit === "contain" ? "object-contain bg-background p-6" : "object-cover"
+      )}
       onError={() => setImageError(true)}
     />
   );
@@ -33,6 +36,7 @@ interface Props {
   tags: readonly string[];
   link?: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -50,6 +54,7 @@ export function ProjectCard({
   tags,
   link,
   image,
+  imageFit,
   video,
   links,
   className,
@@ -78,7 +83,7 @@ export function ProjectCard({
               className="w-full h-48 object-cover"
             />
           ) : image ? (
-            <ProjectImage src={image} alt={title} />
+            <ProjectImage src={image} alt={title} fit={imageFit} />
           ) : (
             <div className="w-full h-48 bg-muted" />
           )}
