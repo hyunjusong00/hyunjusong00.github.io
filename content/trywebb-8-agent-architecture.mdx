@@ -1,0 +1,40 @@
+---
+title: "Designing an 8-Agent System: Trade-offs in Architecting Trywebb"
+publishedAt: "2026-04-24"
+updatedAt: "2026-04-24"
+author: "Hyunju Song"
+summary: "Notes on why we split idea validation across eight specialized agents with a synthesizer layer — and what we gave up to get there."
+---
+
+> Draft — replace with a one-paragraph hook about the moment we realized one big prompt wouldn't cut it.
+
+## Why not one big prompt
+
+- What we tried first
+- Where it broke (depth, consistency, format drift)
+- The hypothesis that pushed us toward multiple agents
+
+## The eight agents
+
+- A short table or list of each agent's role and the question it owns
+- How agents are scoped so their outputs compose, not collide
+- What each agent is *not* allowed to do
+
+## The synthesizer layer
+
+- Why a final pass matters when you have eight opinions
+- What the synthesizer does that the other agents can't
+- How it handles disagreement between agents
+
+## Trade-offs we accepted
+
+- Latency: how slow is too slow for a validation tool?
+- Cost per analysis vs. perceived depth
+- Engineering complexity vs. prompt simplicity
+- When users would rather wait for one good answer than get eight quick ones
+
+## What I'd revisit
+
+- The agent boundary that felt cleanest in theory but blurriest in practice
+- Where we over-engineered
+- The next bottleneck we'll hit when we scale categories
