@@ -21,10 +21,10 @@ const BlurFadeText = ({
   text,
   className,
   variant,
-  duration = 0.4,
+  duration = 0.6,
   characterDelay = 0.03,
   delay = 0,
-  yOffset = 8,
+  yOffset = 10,
   animateByCharacter = false,
 }: BlurFadeTextProps) => {
   const defaultVariants: Variants = {
@@ -51,7 +51,7 @@ const BlurFadeText = ({
               transition={{
                 duration,
                 delay: delay + i * characterDelay,
-                ease: "easeOut",
+                ease: [0.21, 0.47, 0.32, 0.98],
               }}
               className={cn("inline-block", className)}
               style={{ width: char.trim() === "" ? "0.2em" : "auto" }}

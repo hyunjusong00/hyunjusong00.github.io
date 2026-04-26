@@ -7,7 +7,7 @@ import { Timeline, TimelineItem, TimelineConnectItem } from "@/components/timeli
 export default function HackathonsSection() {
   return (
     <div className="flex min-h-0 flex-col gap-y-6 w-full">
-      <h2 className="text-xl font-semibold tracking-tight">Awards & Programs</h2>
+      <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Awards &amp; Programs</h2>
       <Timeline>
         {DATA.hackathons.map((hackathon) => (
           <TimelineItem key={hackathon.title + hackathon.dates} className="w-full flex items-start justify-between gap-10">

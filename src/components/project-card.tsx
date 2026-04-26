@@ -36,6 +36,7 @@ function ProjectImage({
       alt={alt}
       className={cn(
         sizeClass,
+        "transition-transform duration-700 ease-out group-hover:scale-[1.03]",
         isContain ? "object-contain p-6" : "object-cover",
         isContain && !bg ? "bg-white" : ""
       )}
@@ -86,7 +87,7 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "group flex flex-col h-full border border-border rounded-xl overflow-hidden cursor-pointer transition-colors duration-300 hover:border-foreground/30",
         className
       )}
     >

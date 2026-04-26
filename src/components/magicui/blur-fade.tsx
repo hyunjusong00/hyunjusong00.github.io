@@ -21,12 +21,12 @@ const BlurFade = ({
   children,
   className,
   variant,
-  duration = 0.4,
+  duration = 0.6,
   delay = 0,
-  yOffset = 6,
+  yOffset = 10,
   inView = false,
   inViewMargin = "-50px",
-  blur = "6px",
+  blur = "8px",
 }: BlurFadeProps) => {
   const ref = useRef(null);
   const inViewResult = useInView(ref, {
@@ -50,7 +50,7 @@ const BlurFade = ({
         transition={{
           delay: 0.04 + delay,
           duration,
-          ease: "easeOut",
+          ease: [0.21, 0.47, 0.32, 0.98],
         }}
         className={className}
       >

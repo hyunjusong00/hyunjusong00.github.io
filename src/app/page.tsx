@@ -34,7 +34,7 @@ export default function Page() {
           <div className="flex flex-col gap-4 md:flex-1 md:min-w-0">
             <BlurFadeText
               delay={BLUR_FADE_DELAY}
-              className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+              className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
               yOffset={8}
               text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
             />
@@ -56,7 +56,7 @@ export default function Page() {
       <section id="about">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-semibold tracking-tight">About</h2>
+            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">About</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-3xl text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
@@ -75,7 +75,7 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-semibold tracking-tight">Work Experience</h2>
+            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Work Experience</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <WorkSection />
@@ -86,7 +86,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Education</h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
             {DATA.education.map((education, index) => (
@@ -138,7 +138,7 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
-            <h2 className="text-xl font-semibold tracking-tight">Skills</h2>
+            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-2">
             {DATA.skills.map((skill, id) => (
@@ -167,7 +167,7 @@ export default function Page() {
         <section id="writing">
           <div className="flex min-h-0 flex-col gap-y-6">
             <BlurFade delay={BLUR_FADE_DELAY * 14}>
-              <h2 className="text-xl font-semibold tracking-tight">Writing</h2>
+              <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Writing</h2>
             </BlurFade>
             <div className="flex flex-col gap-6">
               {recentPosts.map((post, id) => (
