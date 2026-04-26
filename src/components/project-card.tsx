@@ -91,12 +91,12 @@ export function ProjectCard({
         className
       )}
     >
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 overflow-hidden">
         <Link
           href={href || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block relative"
         >
           {video ? (
             <video
@@ -105,13 +105,19 @@ export function ProjectCard({
               loop
               muted
               playsInline
-              className="w-full h-48 object-cover"
+              className="w-full h-48 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           ) : image ? (
             <ProjectImage src={image} alt={title} fit={imageFit} bg={imageBg} aspect={imageAspect} />
           ) : (
             <div className="w-full h-48 bg-muted" />
           )}
+          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
+            <span className="text-background text-sm font-medium tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground/80">
+              View Project
+              <ArrowUpRight className="h-4 w-4" />
+            </span>
+          </div>
         </Link>
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">

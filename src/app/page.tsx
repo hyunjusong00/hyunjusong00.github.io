@@ -14,6 +14,17 @@ import { allPosts } from "content-collections";
 
 const BLUR_FADE_DELAY = 0.04;
 
+function SectionHeading({ number, label }: { number: string; label: string }) {
+  return (
+    <h2 className="text-sm uppercase tracking-[0.22em] font-semibold flex items-baseline gap-3">
+      <span className="text-muted-foreground tabular-nums text-[11px]">
+        {number}
+      </span>
+      <span>{label}</span>
+    </h2>
+  );
+}
+
 export default function Page() {
   const recentPosts = [...allPosts]
     .sort((a, b) =>
@@ -28,24 +39,42 @@ export default function Page() {
     }));
 
   return (
-    <main className="min-h-dvh flex flex-col gap-20 md:gap-28 relative">
-      <section id="hero" className="pt-4 md:pt-12">
-        <div className="flex flex-col-reverse md:flex-row md:items-center gap-8 md:gap-12">
-          <div className="flex flex-col gap-4 md:flex-1 md:min-w-0">
+    <main className="min-h-dvh flex flex-col gap-24 md:gap-32 relative">
+      <section id="hero" className="pt-6 md:pt-12">
+        <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
+          <div className="flex flex-col gap-6 md:gap-7 md:flex-1 md:min-w-0">
             <BlurFadeText
               delay={BLUR_FADE_DELAY}
-              className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
-              yOffset={8}
-              text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
+              className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
+              yOffset={12}
+              text={DATA.name}
             />
             <BlurFadeText
               className="text-muted-foreground max-w-2xl md:text-lg lg:text-xl"
-              delay={BLUR_FADE_DELAY}
+              delay={BLUR_FADE_DELAY * 2}
               text={DATA.description}
             />
+            <BlurFade delay={BLUR_FADE_DELAY * 3}>
+              <div className="flex flex-wrap gap-3 mt-1">
+                <Link
+                  href="#projects"
+                  className="group inline-flex items-center gap-1.5 px-5 py-2.5 bg-foreground text-background text-sm font-medium rounded-full hover:bg-foreground/90 transition-colors"
+                >
+                  View Projects
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <Link
+                  href="#contact"
+                  className="group inline-flex items-center gap-1.5 px-5 py-2.5 border border-border text-sm font-medium rounded-full hover:border-foreground/40 transition-colors"
+                >
+                  Get in Touch
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
+            </BlurFade>
           </div>
           <BlurFade delay={BLUR_FADE_DELAY} className="md:flex-none">
-            <Avatar className="size-28 md:size-40 lg:size-48 border rounded-full">
+            <Avatar className="size-28 md:size-36 lg:size-40 border rounded-full">
               <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
               <AvatarFallback>{DATA.initials}</AvatarFallback>
             </Avatar>
@@ -54,9 +83,9 @@ export default function Page() {
       </section>
 
       <section id="about">
-        <div className="flex min-h-0 flex-col gap-y-4">
+        <div className="flex min-h-0 flex-col gap-y-5">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">About</h2>
+            <SectionHeading number="01" label="About" />
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-3xl text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
@@ -75,7 +104,7 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Work Experience</h2>
+            <SectionHeading number="03" label="Work" />
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <WorkSection />
@@ -86,7 +115,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Education</h2>
+            <SectionHeading number="04" label="Education" />
           </BlurFade>
           <div className="flex flex-col gap-8">
             {DATA.education.map((education, index) => (
@@ -136,9 +165,9 @@ export default function Page() {
       </section>
 
       <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-4">
+        <div className="flex min-h-0 flex-col gap-y-5">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
-            <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Skills</h2>
+            <SectionHeading number="05" label="Skills" />
           </BlurFade>
           <div className="flex flex-wrap gap-2">
             {DATA.skills.map((skill, id) => (
@@ -167,7 +196,7 @@ export default function Page() {
         <section id="writing">
           <div className="flex min-h-0 flex-col gap-y-6">
             <BlurFade delay={BLUR_FADE_DELAY * 14}>
-              <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Writing</h2>
+              <SectionHeading number="07" label="Writing" />
             </BlurFade>
             <div className="flex flex-col gap-6">
               {recentPosts.map((post, id) => (

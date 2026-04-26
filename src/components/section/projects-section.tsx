@@ -8,7 +8,10 @@ export default function ProjectsSection() {
     return (
         <div className="flex min-h-0 flex-col gap-y-8">
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
-                <h2 className="text-sm uppercase tracking-[0.22em] font-semibold">Projects</h2>
+                <h2 className="text-sm uppercase tracking-[0.22em] font-semibold flex items-baseline gap-3">
+                    <span className="text-muted-foreground tabular-nums text-[11px]">02</span>
+                    <span>Projects</span>
+                </h2>
             </BlurFade>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
                 {DATA.projects.map((project, id) => (
