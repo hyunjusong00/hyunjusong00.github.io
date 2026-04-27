@@ -120,11 +120,13 @@
     @apply bg-background text-foreground;
   }
 
-  @media (pointer: fine) {
-    body.cursor-none,
-    body.cursor-none * {
-      cursor: none !important;
-    }
+  @keyframes caret-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .caret-blink {
+    animation: caret-blink 1s step-end infinite;
   }
 
   /* Shiki dual theme support */

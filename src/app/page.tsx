@@ -10,6 +10,7 @@ import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import { allPosts } from "content-collections";
+import Typewriter from "@/components/typewriter";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -49,11 +50,11 @@ export default function Page() {
                 yOffset={12}
                 text="Hi I'm"
               />
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY * 2}
-                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
-                yOffset={12}
+              <Typewriter
                 text="HyunJu (Elle) Song :D"
+                speed={75}
+                startDelay={700}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
               />
             </div>
             <BlurFadeText
