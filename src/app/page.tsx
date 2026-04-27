@@ -77,13 +77,13 @@ export default function Page() {
               <img
                 src={DATA.avatarUrl}
                 alt={DATA.name}
-                className="absolute inset-0 size-full object-cover rounded-2xl"
+                className="absolute inset-0 size-full object-cover rounded-full"
               />
               <div
-                className="absolute inset-0 rounded-2xl pointer-events-none"
+                className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
                   boxShadow:
-                    "inset 0 0 32px 16px var(--background)",
+                    "inset 0 0 18px 6px var(--background)",
                 }}
               />
             </div>
