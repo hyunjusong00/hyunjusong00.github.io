@@ -60,7 +60,7 @@ export default function Page() {
                 text="- product manager bridging Korea and California"
                 speed={55}
                 startDelay={1400}
-                className="text-2xl font-medium tracking-tight sm:text-3xl lg:text-4xl text-pink-300 mt-2"
+                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
