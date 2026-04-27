@@ -41,7 +41,7 @@ export default function Page() {
   return (
     <main className="min-h-dvh flex flex-col gap-24 md:gap-32 relative">
       <section id="hero" className="pt-6 md:pt-12">
-        <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
+        <div className="flex flex-col-reverse md:flex-row md:items-start md:justify-between gap-10 md:gap-12">
           <div className="flex flex-col gap-6 md:gap-7 md:flex-1 md:min-w-0">
             <div className="flex flex-col gap-1">
               <BlurFadeText
