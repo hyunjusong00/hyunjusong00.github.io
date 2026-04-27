@@ -120,15 +120,6 @@
     @apply bg-background text-foreground;
   }
 
-  @keyframes caret-blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-
-  .caret-blink {
-    animation: caret-blink 1s step-end infinite;
-  }
-
   /* Shiki dual theme support */
   .shiki,
   .shiki span {

@@ -10,7 +10,6 @@ import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import { allPosts } from "content-collections";
-import Typewriter from "@/components/typewriter";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -43,25 +42,32 @@ export default function Page() {
       <section id="hero" className="pt-6 md:pt-12">
         <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
           <div className="flex flex-col gap-6 md:gap-7 md:flex-1 md:min-w-0">
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 leading-[1.05]">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
                 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
                 yOffset={12}
-                text="Hi I'm"
+                text="Hi there!"
               />
-              <Typewriter
-                text="HyunJu (Elle) Song :D"
-                speed={75}
-                startDelay={700}
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 1.5}
                 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="I'm HyunJu (Elle) Song"
+              />
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 2}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="— Product Manager"
+              />
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 2.5}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="bridging Korea and California."
               />
             </div>
-            <BlurFadeText
-              className="text-muted-foreground md:text-lg lg:text-xl"
-              delay={BLUR_FADE_DELAY * 3}
-              text="— Product Manager bridging Korea and California"
-            />
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
               <div className="flex flex-wrap gap-3 mt-1">
                 <Link
