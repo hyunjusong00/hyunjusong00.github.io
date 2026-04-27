@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -74,10 +73,20 @@ export default function Page() {
             </BlurFade>
           </div>
           <BlurFade delay={BLUR_FADE_DELAY} className="md:flex-none">
-            <Avatar className="size-28 md:size-36 lg:size-40 border rounded-full">
-              <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-              <AvatarFallback>{DATA.initials}</AvatarFallback>
-            </Avatar>
+            <div className="relative size-32 md:size-44 lg:size-52">
+              <img
+                src={DATA.avatarUrl}
+                alt={DATA.name}
+                className="absolute inset-0 size-full object-cover rounded-2xl"
+              />
+              <div
+                className="absolute inset-0 rounded-2xl pointer-events-none"
+                style={{
+                  boxShadow:
+                    "inset 0 0 32px 16px var(--background)",
+                }}
+              />
+            </div>
           </BlurFade>
         </div>
       </section>
