@@ -48,20 +48,21 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
                 yOffset={12}
-                text="Hi I'm"
+                text="Hi :D"
+              />
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 2}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="I'm HyunJu (Elle) Song"
               />
               <Typewriter
-                text="HyunJu (Elle) Song :D"
-                speed={75}
-                startDelay={700}
-                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                text="- product manager bridging Korea and California"
+                speed={55}
+                startDelay={1400}
+                className="text-2xl font-medium tracking-tight sm:text-3xl lg:text-4xl text-pink-300 mt-2"
               />
             </div>
-            <BlurFadeText
-              className="text-muted-foreground md:text-lg lg:text-xl"
-              delay={BLUR_FADE_DELAY * 3}
-              text="— Product Manager bridging Korea and California"
-            />
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
               <div className="flex flex-wrap gap-3 mt-1">
                 <Link
