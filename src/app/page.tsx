@@ -42,12 +42,20 @@ export default function Page() {
       <section id="hero" className="pt-6 md:pt-12">
         <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
           <div className="flex flex-col gap-6 md:gap-7 md:flex-1 md:min-w-0">
-            <BlurFadeText
-              delay={BLUR_FADE_DELAY}
-              className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
-              yOffset={12}
-              text="Hi I'm HyunJu (Elle) Song :D"
-            />
+            <div className="flex flex-col gap-1">
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="Hi I'm"
+              />
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY * 2}
+                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                yOffset={12}
+                text="HyunJu (Elle) Song :D"
+              />
+            </div>
             <BlurFadeText
               className="text-muted-foreground max-w-2xl md:text-lg lg:text-xl"
               delay={BLUR_FADE_DELAY * 2}

@@ -120,6 +120,13 @@
     @apply bg-background text-foreground;
   }
 
+  @media (pointer: fine) {
+    body.cursor-none,
+    body.cursor-none * {
+      cursor: none !important;
+    }
+  }
+
   /* Shiki dual theme support */
   .shiki,
   .shiki span {
