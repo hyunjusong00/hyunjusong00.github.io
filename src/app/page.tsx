@@ -58,9 +58,9 @@ export default function Page() {
               />
             </div>
             <BlurFadeText
-              className="text-muted-foreground max-w-2xl md:text-lg lg:text-xl"
-              delay={BLUR_FADE_DELAY * 2}
-              text={DATA.description}
+              className="text-muted-foreground md:text-lg lg:text-xl"
+              delay={BLUR_FADE_DELAY * 3}
+              text="— Product Manager bridging Korea and California"
             />
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
               <div className="flex flex-wrap gap-3 mt-1">
