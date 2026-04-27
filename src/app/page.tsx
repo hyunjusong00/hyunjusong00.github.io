@@ -57,10 +57,16 @@ export default function Page() {
                 text="I'm HyunJu (Elle) Song"
               />
               <Typewriter
-                text="- product manager bridging Korea and California"
+                text="product & brand builder"
                 speed={55}
                 startDelay={1400}
-                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 mt-3 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
+              />
+              <Typewriter
+                text="bridging Korea and California"
+                speed={55}
+                startDelay={2800}
+                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
