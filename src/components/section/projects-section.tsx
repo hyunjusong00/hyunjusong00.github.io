@@ -17,7 +17,10 @@ export default function ProjectsSection() {
                 {DATA.projects.map((project, id) => (
                     <BlurFade
                         key={project.title}
-                        delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+                        delay={id * 0.08}
+                        duration={0.45}
+                        inView
+                        inViewMargin="150px"
                         className="h-full"
                     >
                         <ProjectCard
