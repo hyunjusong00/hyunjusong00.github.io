@@ -21,11 +21,11 @@ const BlurFade = ({
   children,
   className,
   variant,
-  duration = 0.6,
+  duration = 0.4,
   delay = 0,
   yOffset = 10,
   inView = true,
-  inViewMargin = "-80px",
+  inViewMargin = "200px",
   blur = "8px",
 }: BlurFadeProps) => {
   const ref = useRef(null);
