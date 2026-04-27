@@ -47,8 +47,6 @@ export default function Page() {
               className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
               yOffset={12}
               text={DATA.name}
-              animateByCharacter
-              characterDelay={0.04}
             />
             <BlurFadeText
               className="text-muted-foreground max-w-2xl md:text-lg lg:text-xl"
