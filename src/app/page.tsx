@@ -62,12 +62,6 @@ export default function Page() {
                 startDelay={1400}
                 className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 mt-3 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
               />
-              <Typewriter
-                text="bridging Korea and California"
-                speed={55}
-                startDelay={2800}
-                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
-              />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
               <div className="flex flex-wrap gap-3 mt-1">
