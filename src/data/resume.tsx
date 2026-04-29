@@ -183,7 +183,7 @@ export const DATA = {
     },
     {
       title: "Welfare Link",
-      href: "https://www.figma.com/design/37saalrtyIOOSRwvX0PdOo/HCI-UX-%ED%98%81%EC%8B%A0?node-id=0-1&t=qNHB6alVQuBmImGO-1",
+      href: "/projects/welfare-link",
       dates: "2025",
       active: false,
       description:
@@ -201,7 +201,7 @@ export const DATA = {
     },
     {
       title: "Divers(C)ity",
-      href: "/Diver(c)ity-award.jpg",
+      href: "/projects/divers-city",
       dates: "2025 · 2nd Place",
       active: false,
       description:

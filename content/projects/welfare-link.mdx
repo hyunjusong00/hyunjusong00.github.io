@@ -1,0 +1,57 @@
+---
+title: "Welfare Link"
+dates: "Sep 2025 — Dec 2025"
+role: "Team Lead · Product Designer"
+summary: "Korea's aging crisis is a UX problem before it's a benefits problem."
+coverImage: "/welfarelink.png"
+liveUrl: "https://www.figma.com/design/37saalrtyIOOSRwvX0PdOo/HCI-UX-%ED%98%81%EC%8B%A0?node-id=0-1&t=qNHB6alVQuBmImGO-1"
+technologies:
+  - "UX Design"
+  - "User Research"
+  - "Figma"
+  - "Accessibility"
+  - "Team Lead"
+---
+
+## The problem
+
+Korea hits the "super-aged society" mark in 2025 — over 20% of the population is 65 or older. The government keeps adding welfare benefits, and almost nobody navigates them alone. They get navigated by adult children translating bureaucracy on weekend phone calls.
+
+Every existing welfare app is built for the elderly user as if they were a single user. Single login, single profile, single recommendation model. The actual decision unit — parent + adult child — has nowhere to live in the product.
+
+## My role
+
+Team Lead of 6 for an HCI/UX Innovation course at Kookmin. I owned product direction from problem definition through final interactive Figma prototype, ran the user research, and split design execution with the rest of the team.
+
+## Key decisions
+
+### Designed for two users at once
+
+User research with 6 participants — 3 elderly users 60+, 3 adult children in their 40s–50s. Most accessibility design assumes the elderly user is alone. Our research said the opposite: every elderly participant talked through welfare decisions with at least one child. The "user" wasn't a person, it was a relationship.
+
+So we designed two views on the same data — a simplified, voice-first view for the parent and a denser, action-oriented view for the child. They sync. The child can pre-fill applications the parent reviews and approves.
+
+### Voice-first over text-first
+
+The default accessibility move is "make the text bigger." The actual blocker was different: Korean welfare bureaucracy uses dense administrative language even at 24px. Reading wasn't the problem; comprehension was.
+
+So we made voice the primary input/output surface. The system reads recommendations aloud in everyday Korean. Voice is also a permission gate — the parent confirms applications by speaking, not tapping.
+
+### AI recommendations around family context, not individual profile
+
+Most recommender systems profile the user. We profiled the household. The child's recent activity — job changes, location, financial stress — shapes what the parent sees, because in practice those are the things that change which welfare programs are useful.
+
+This was the most contentious design call inside the team — privacy-adjacent, requires explicit consent flows. We kept it because every interview confirmed that elderly participants didn't think of welfare as an "individual" thing in the first place.
+
+## What's shipped
+
+- Brand identity, user flows for both user types, fully interactive Figma prototype
+- 8+ key screens covering onboarding, recommendation review, application drafting, voice confirmation, and family sync
+- Research synthesis from 6 participant interviews across two age cohorts
+- [Project deck (PDF)](/welfarelink-deck.pdf)
+
+## What this taught me
+
+That accessibility design fails when it stops at the surface — font size, contrast, big buttons — and skips the social context. The hardest UX problem in elder care isn't sensory. It's that the decision is being made by two people on different devices, in different vocabularies.
+
+That a "team lead" role on a 6-person student team is mostly the work of letting the right disagreement happen. The privacy debate around the household-profile recommender was the team's best discussion of the semester, and the design wouldn't have been as defensible without it.
