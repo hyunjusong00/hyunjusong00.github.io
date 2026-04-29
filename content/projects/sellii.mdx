@@ -1,0 +1,89 @@
+---
+title: "Sellii"
+dates: "Feb 2026 — Present"
+role: "Product Designer · Marketing Lead"
+summary: "An AI agent that does the reseller's homework — but only as much as the user lets it."
+coverImage: "/sellii-discover.jpeg"
+technologies:
+  - "Product Design"
+  - "Figma"
+  - "Agent UX"
+  - "Brand Identity"
+  - "Marketing"
+---
+
+## The problem
+
+Reselling is two compounding problems. The first is *speed* — good listings get sniped within minutes of going up, so anyone serious refreshes Facebook Marketplace, OfferUp, and Craigslist multiple times an hour. The second is *signal* — a $60 sneaker is only worth grabbing if its eBay sold-comp average is significantly higher, and pulling that data manually for every candidate listing isn't realistic.
+
+Existing tools solve one or the other. Reseller alert apps spam every new listing without filtering for actual margin. Price-research tools only run when you stop and feed them a query. Nothing closes the loop — discovery, pricing, message draft, listing generation — without losing accuracy or trust along the way.
+
+Sellii is the loop, run by an AI agent.
+
+## My role
+
+Product Designer & Marketing Lead on a 3-person team. I own user flow and screen architecture across the entire agent interaction surface, the brand identity, and the launch content — video scripts + Reddit / Instagram posts — that translate *AI agent* from a technology label into a relatable habit.
+
+## Key decisions
+
+### Three trust tiers, not one auto-pilot
+
+The hard problem in agent UX isn't capability — it's trust. Users don't hand AI the keys to actual marketplace actions on day one, no matter how good the agent is. Sellii's response is a **three-tier automation system**:
+
+| Level | What it does |
+| --- | --- |
+| **1 — Alerts only** | The agent finds deals; the user does everything else manually. |
+| **2 — Drafts** | The agent prepares seller messages and eBay listings; the user reviews and approves before anything sends. |
+| **3 — Full auto** | The agent sends messages and lists items automatically; the user reviews after the fact. |
+
+The tiers aren't pricing — they're a **trust gradient**. New users start at Level 1, watch the agent surface deals that turn out to be real, and graduate themselves to higher tiers when they're ready. That progression *is* the product, structured.
+
+The whole interface — dashboard hierarchy, alert tone, approval flows — is designed so each tier feels native, not like a stripped-down version of the next one up.
+
+### Designed the agent as if it were a user
+
+Sellii's agent doesn't scrape HTML. It opens a real browser, takes screenshots, and reads them through GPT-4o vision — the same way a human reseller skims a feed. That choice has design implications: the agent has to *behave* like a user too. Pacing, scroll cadence, idle gaps, time-of-day windows — all of those became design decisions, not just technical ones.
+
+The downstream benefit: when Facebook redesigns its DOM (which happens), nothing breaks. The agent reads pixels.
+
+### A logo where the brand idea hides in the letterforms
+
+`Sellii` has two `i`s back to back — *two people standing next to each other.* The mark turns those two letters into the two sides of every transaction: a seller and a buyer, mirrored. The whole product is one person handing something off to another, mediated by an agent — the wordmark says that before any copy does.
+
+It's a small detail, but small details are how a 3-person team signals legitimacy. We can't ship more features than our competitors. We can ship a logo with intent.
+
+### Marketing as a UX surface
+
+Most AI-product marketing oversells capability and undersells habit. Reseller marketing especially leans into either dry technical promises ("real-time price arbitrage") or hype ("make $5K/month flipping Pokémon cards"). Neither earns trust.
+
+The Reddit and Instagram launch content I wrote takes a third path: show one specific reseller's morning routine *with* and *without* Sellii. The product abstraction (an AI agent that scans marketplaces) lands when it's anchored to a concrete habit a user already has.
+
+The launch post is the user's first interaction with the product — before sign-up, before the dashboard. Treating it like a UX surface, not a marketing surface, is what makes the product feel real.
+
+## What's shipped
+
+**Product surface**
+- Dashboard with deal feed (sorted by predicted profit), morning report, message and listing inboxes
+- Settings: category interests, minimum-margin threshold, automation level, Facebook session sync via a Chrome mini-extension
+- Web Push notifications without an extension (VAPID)
+
+**Agent interaction loop**
+- Vision-driven session runner — screenshot → GPT-4o analysis → tool call (eBay sold-comp lookup, profit calculator, message generator, listing generator) → action → human-pattern delay
+- Three-tier automation flowing through the same screens with role-aware approval flows
+
+**Brand & launch surfaces**
+- Logo system built around the two-`i` two-people-trading mark; wordmark, color and type direction
+- Video scripts and short-form Reddit / Instagram launch content translating the agent into a relatable workflow
+
+**Build status (April 2026)**
+- Phases 1–7 complete: auth, agent core, marketplace integrations, alerts, message + listing drafts, eBay auto-registration
+- Phase 8 (Stripe billing) and Phase 10 (production deploy) pending
+- Currently running parallel user testing while the team refactors for lower infrastructure cost
+
+## What this taught me
+
+That **trust is the actual product** when you ship an agent. Capabilities sell tickets; trust gradients earn retention.
+
+That **brand details earn legitimacy disproportionate to their cost.** A small team can't ship more features than its competitors. It can ship a logo with intent.
+
+That **marketing for an AI product is mostly UX work.** The launch post is the user's first interaction with the product — and treating it like a UX surface, anchored to a concrete habit instead of a capability list, is what makes the product land.

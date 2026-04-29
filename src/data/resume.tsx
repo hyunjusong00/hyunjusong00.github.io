@@ -165,7 +165,7 @@ export const DATA = {
     },
     {
       title: "Sellii",
-      href: "#",
+      href: "/projects/sellii",
       dates: "2026 · In Progress",
       active: true,
       description:
