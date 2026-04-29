@@ -73,6 +73,15 @@ export default function Page() {
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <Link
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 px-5 py-2.5 border border-border text-sm font-medium rounded-full hover:border-foreground/40 transition-colors"
+                >
+                  View Resume
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <Link
                   href="#contact"
                   className="group inline-flex items-center gap-1.5 px-5 py-2.5 border border-border text-sm font-medium rounded-full hover:border-foreground/40 transition-colors"
                 >
