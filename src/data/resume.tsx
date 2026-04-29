@@ -146,7 +146,7 @@ export const DATA = {
   projects: [
     {
       title: "Trywebb",
-      href: "https://try-flow-ten.vercel.app/",
+      href: "/projects/trywebb",
       dates: "2026 · In Progress",
       active: true,
       description:

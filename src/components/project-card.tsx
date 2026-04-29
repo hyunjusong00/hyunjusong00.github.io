@@ -94,8 +94,7 @@ export function ProjectCard({
       <div className="relative shrink-0 overflow-hidden">
         <Link
           href={href || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(href && /^(https?:)?\/\//.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           className="block relative"
         >
           {video ? (
@@ -149,8 +148,7 @@ export function ProjectCard({
           </div>
           <Link
             href={href || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(href && /^(https?:)?\/\//.test(href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label={`Open ${title}`}
           >

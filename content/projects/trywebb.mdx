@@ -1,0 +1,46 @@
+---
+title: "Trywebb"
+dates: "Feb 2026 — Present"
+role: "Product Manager"
+summary: "AI-powered idea validation platform serving founders (decision tool) and VCs (discovery surface). Pivoted mid-build from peer feedback to a two-sided market when retention told us students reviewing students wasn't a market."
+coverImage: "/trywebb-landing.png"
+liveUrl: "https://try-flow-ten.vercel.app/"
+technologies:
+  - "Product Management"
+  - "Prompt Engineering"
+  - "Agent Architecture"
+  - "React"
+  - "LLM"
+  - "SaaS"
+---
+
+## The problem
+
+Early-stage founders need fast, structured signal on whether an idea is worth pursuing. Existing tools either oversimplify (single-score validation) or overwhelm (full market research reports). At the pre-seed stage, VCs are looking for the same signal from the discovery side — they want to see ideas before they're packaged into decks.
+
+The first version of Trywebb tried to solve this by asking Software students to review each other's projects. The hypothesis was: builders helping builders. The data made it clear within a month that wasn't a market.
+
+## My role
+
+PM for a team of four — one developer, two marketers, and me. I own product direction, the analysis architecture, the pivot decisions, and a meaningful slice of the frontend code.
+
+## Key decisions
+
+**Pivoted from peer feedback to a two-sided market.** Of the first 30 students who signed up, four came back after week one. The most common feedback comment was "nice UI." Students reviewing students wasn't producing the signal builders actually wanted. So Trywebb pivoted to founders + VCs — both sides have stakes, both sides solve the other side's cold-start problem.
+
+**Cut the analysis layer from 8 agents to 6.** The original system had 8 agents covering different evaluation angles. After I sat with seven angel investors over six weeks and went deep into how YC and a16z actually evaluate ideas, I cut to 6 — sharper lenses, less surface area, more signal. More always feels safer when you don't know who you're building for, but the answer becomes obvious once you do.
+
+**Built the frontend myself.** Picking up Git and the React stack so I could ship UI alongside the developer changed how the team worked together. Specs become components instead of "wait, that's not what I meant" loops. It also forced every product decision through one question: *is this worth three days of someone's life?* That's a question pure PMs sometimes forget to ask.
+
+## What's shipped
+
+- Three-tier SaaS pricing — Free / Plus $10 / Pro $20
+- 6-agent AI analysis system with a synthesizer layer
+- Prompt-engineering overlay supporting category-specific customization (consumer apps, B2B SaaS, fintech, etc.)
+- Two-sided UX — founders submit and compare ideas, VCs browse a discovery surface
+- Reddit-based GTM experiments running pre-launch
+- Pre-launch user testing with 6 participants (founders + market researchers / aspiring investors) lined up before public release
+
+## Read more
+
+The longer-form story of the pivot lives on the blog: [Why Trywebb Pivoted From Pricing to Multi-Idea Validation](/blog/trywebb-pivot).
