@@ -150,7 +150,7 @@ export const DATA = {
       dates: "2026 · In Progress",
       active: true,
       description:
-        "AI-powered idea validation for early-stage founders. Architected an 8-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
+        "First version asked Software students to review each other's projects. When 4 of our first 30 users came back after week one, I pivoted to a two-sided market — founders show raw ideas, VCs get earlier signal. Cut the analysis layer from 8 agents to 6 after talking to 7 angel investors about how they actually decide.",
       technologies: [
         "Product Management",
         "Prompt Engineering",
@@ -169,7 +169,7 @@ export const DATA = {
       dates: "2026 · In Progress",
       active: true,
       description:
-        "AI agent that scans Facebook Marketplace, OfferUp, and Craigslist using GPT-4o Vision + Playwright. Cross-checks eBay prices and notifies users of underpriced deals. Users choose their automation level — alerts only, drafted messages, or fully automated.",
+        "The hard problem in agent UX is trust — users don't hand AI the keys on day one. Designed three permission tiers (alerts only → drafted messages → full automation) so users grow into the agent at their own pace. Own user flow, screen design, and the short-form launch content that turns 'agent' from a technology label into something a person actually relaxes into.",
       technologies: [
         "Product Design",
         "Figma",
@@ -187,7 +187,7 @@ export const DATA = {
       dates: "2025",
       active: false,
       description:
-        "Welfare discovery platform bridging Korea's aging population and their adult children. Led a team of 6 through user research with elderly users and their children. Voice-guided interface with family-context AI recommendations.",
+        "Korea's welfare apps assume the elderly use them alone. They don't — most are navigated by adult children translating bureaucracy. Led a team of 6 through user research with both sides, then designed a voice-guided interface where family context shapes what the AI recommends.",
       technologies: [
         "UX Design",
         "User Research",
@@ -205,7 +205,7 @@ export const DATA = {
       dates: "2025 · 2nd Place",
       active: false,
       description:
-        "Global platform for migrant worker rights, career mobility, and employer communication. Five-module architecture combining AI personalization and blockchain verification. Authored a 16-page proposal and designed 8+ prototype screens solo. 2nd Place, 2025 Global Co-Prosperity Academic Conference.",
+        "Migrant workers lose every credential, recommendation, and connection when they cross a border. Designed a five-module platform that makes those things portable — AI for context-aware personalization, blockchain for verification that travels with the worker. Authored the 16-page proposal and 8+ prototype screens solo. 2nd Place, 2025 Global Co-Prosperity Academic Conference.",
       technologies: [
         "Platform Design",
         "AI",
@@ -223,7 +223,7 @@ export const DATA = {
       dates: "2024",
       active: false,
       description:
-        "Led a full redesign of the Kookmin University Newspaper website as Editor-in-Chief. Restructured information architecture, modernized the visual system, and rebuilt navigation around how readers actually browsed articles. Website traffic grew 40%+ within a semester.",
+        "The old site treated articles as text-first, with the design team's work as decoration. As Editor-in-Chief, I rebuilt navigation around how readers actually browsed — by issue, by visual hook — and put design at the front door. Traffic grew 40%+ within a semester.",
       technologies: [
         "Web Redesign",
         "Information Architecture",
@@ -240,7 +240,7 @@ export const DATA = {
       dates: "2024",
       active: false,
       description:
-        "Planned and scripted Instagram Reels and feed content for @kmu_bizon as Editor-in-Chief, then partnered with the design team to bring each piece to life. Defined topic angles, narrative beats, and the visual tone before handoff. Instagram followers grew 1.5× within a semester.",
+        "We had been a text-first paper publishing into a video-first feed. As Editor-in-Chief, I scripted Reels and short-form posts so the design team could publish, not just decorate — defining topic angles, narrative beats, and visual tone before handoff. Followers grew 1.5× and added ~200 in a single semester.",
       technologies: [
         "Content Strategy",
         "Reels & Feed Planning",
@@ -258,7 +258,7 @@ export const DATA = {
       dates: "2023 · 2nd Place",
       active: false,
       description:
-        "Concept proposal for an AI-powered pet insurance platform matching users with plans based on wearable health data. Combined collaborative and content-based filtering for personalization. 2nd Place, 2023 Kookmin MIS × Finance Academic Conference.",
+        "Pet insurance plans are sold by price, not fit — most owners pick wrong on first signup and churn within a year. Concept proposal pairing wearable health data with collaborative + content-based filtering, so plan recommendations match each pet's actual risk profile. 2nd Place, 2023 Kookmin MIS × Finance Academic Conference.",
       technologies: [
         "Service Design",
         "AI Recommendation",
