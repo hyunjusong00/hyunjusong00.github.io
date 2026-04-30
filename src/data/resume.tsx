@@ -11,7 +11,7 @@ export const DATA = {
   description:
     "Product builder operating across Korea and the US. Currently leading product at Trywepp, an AI platform connecting VCs with early-stage founders, and driving design at Sellii, an AI deal-hunting agent.",
   summary:
-    "I build AI products that travel between Korea and the US — fluent in both markets, shipping into both. Currently leading product at [Trywepp](#projects) (an AI platform connecting VCs with early-stage founders) and driving design and launch content at [Sellii](#projects) (an agent that hunts underpriced marketplace deals). Before AI, Editor-in-Chief at Korea's largest student newspaper. Double major in MIS and Software Engineering. Based in Irvine, CA — *[authorized to work in the US.](#contact)*",
+    "I build AI products and brand stories that travel between Korea and the US — fluent in both markets, shipping into both. Currently leading product at [Trywepp](#projects) (an AI platform connecting VCs with early-stage founders) and driving design, brand, and launch content at [Sellii](#projects) (an agent that hunts underpriced marketplace deals). Before AI, Editor-in-Chief at Korea's largest student newspaper. Double major in MIS and Software Engineering. Based in Irvine, CA — *[authorized to work in the US.](#contact)*",
   avatarUrl: "/me.png",
   skills: [
     { name: "Product Management" },
@@ -176,9 +176,30 @@ export const DATA = {
         "GPT-4o Vision",
         "Playwright",
         "Agent UX",
+        "Brand",
+        "Launch Marketing",
+        "Content",
       ],
       links: [],
       image: "/sellii-discover.jpeg",
+      video: "",
+    },
+    {
+      title: "Kookmin University Newspaper Instagram - Reels & Feed Direction",
+      href: "/projects/newspaper-instagram",
+      dates: "2024",
+      active: false,
+      description:
+        "Planned and scripted Instagram Reels and feed content for @kmu_bizon as Editor-in-Chief, then partnered with the design team to bring each piece to life. Defined topic angles, narrative beats, and the visual tone before handoff. Instagram followers grew 1.5× within a semester.",
+      technologies: [
+        "Content Strategy",
+        "Reels & Feed Planning",
+        "Cross-team Collaboration",
+        "Social Media",
+      ],
+      links: [],
+      image: "/bizon.png",
+      imageFit: "contain" as const,
       video: "",
     },
     {
@@ -231,24 +252,6 @@ export const DATA = {
       ],
       links: [],
       image: "/workbridge-prototype.png",
-      video: "",
-    },
-    {
-      title: "Kookmin University Newspaper Instagram - Reels & Feed Direction",
-      href: "/projects/newspaper-instagram",
-      dates: "2024",
-      active: false,
-      description:
-        "Planned and scripted Instagram Reels and feed content for @kmu_bizon as Editor-in-Chief, then partnered with the design team to bring each piece to life. Defined topic angles, narrative beats, and the visual tone before handoff. Instagram followers grew 1.5× within a semester.",
-      technologies: [
-        "Content Strategy",
-        "Reels & Feed Planning",
-        "Cross-team Collaboration",
-        "Social Media",
-      ],
-      links: [],
-      image: "/bizon.png",
-      imageFit: "contain" as const,
       video: "",
     },
     {
