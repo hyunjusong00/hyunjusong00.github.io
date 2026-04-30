@@ -9,9 +9,9 @@ export const DATA = {
   location: "Irvine, CA",
   locationLink: "https://www.google.com/maps/place/irvine+ca",
   description:
-    "Product Manager bridging Korea and the US. Currently leading product at Trywebb, an AI-powered idea validation tool, and driving design at Sellii, an AI deal-hunting agent, through Kookmin University's Global PBL Program.",
+    "Product builder operating across Korea and the US. Currently leading product at Trywepp, an AI platform connecting VCs with early-stage founders, and driving design at Sellii, an AI deal-hunting agent.",
   summary:
-    "I build products at the intersection of business, technology, and user experience — always with a question in mind: how can AI and data actually help people, not just automate things? Currently based in Irvine, California through Kookmin's Global PBL Program (AI for Business track), where I lead product at [Trywebb](#projects) and drive design and launch content at [Sellii](#projects). Background in Management Information Systems and Software Engineering. [Authorized to work in the US through J-1 Academic Training.](#contact)",
+    "I build AI products that travel between Korea and the US — fluent in both markets, shipping into both. Currently leading product at [Trywepp](#projects) (an AI platform connecting VCs with early-stage founders) and driving design and launch content at [Sellii](#projects) (an agent that hunts underpriced marketplace deals). Before AI, Editor-in-Chief at Korea's largest student newspaper. Double major in MIS and Software Engineering. Based in Irvine, CA — *[authorized to work in the US.](#contact)*",
   avatarUrl: "/me.png",
   skills: [
     { name: "Product Management" },
@@ -65,16 +65,16 @@ export const DATA = {
   },
   work: [
     {
-      company: "Trywebb",
+      company: "Trywepp",
       href: "https://try-flow-ten.vercel.app/",
       badges: [],
       location: "Irvine, CA",
       title: "Product Manager",
-      logoUrl: "/trywebb-logo.png",
+      logoUrl: "/trywepp-logo.png",
       start: "April 2026",
       end: "Present",
       description:
-        "Lead product direction for an AI-powered startup idea validation tool. Drove the pivot from pricing validation to multi-idea comparison. Designed a three-tier SaaS model (Free / Plus / Pro) and architected an 8-agent AI analysis system with a synthesizer layer. Built a prompt engineering overlay system for category-specific domain knowledge. Preparing pre-launch user testing with founders and market researchers.",
+        "Lead product direction for an AI platform connecting VCs with early-stage founders. Drove the pivot from peer feedback to a two-sided market. Designed a three-tier SaaS model (Free / Plus / Pro) and architected a multi-agent AI analysis system with a synthesizer layer. Built a prompt engineering overlay system for category-specific domain knowledge. Preparing pre-launch user testing with founders and market researchers.",
     },
     {
       company: "Sellii",
@@ -145,12 +145,12 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Trywebb",
-      href: "/projects/trywebb",
+      title: "Trywepp",
+      href: "/projects/trywepp",
       dates: "2026 · In Progress",
       active: true,
       description:
-        "AI-powered idea validation for early-stage founders. Architected an 8-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
+        "An AI platform connecting VCs with early-stage founders. Architected a multi-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
       technologies: [
         "Product Management",
         "Prompt Engineering",
@@ -160,7 +160,7 @@ export const DATA = {
         "SaaS",
       ],
       links: [],
-      image: "/trywebb-landing.png",
+      image: "/trywepp-landing.png",
       video: "",
     },
     {
