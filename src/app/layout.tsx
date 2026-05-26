@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter, Geist_Mono, Caveat } from "next/font/google";
+import { Inter, Geist_Mono, Caveat, Fraunces } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,6 +24,12 @@ const caveat = Caveat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-caveat",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
@@ -74,7 +80,8 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased relative",
           inter.variable,
           geistMono.variable,
-          caveat.variable
+          caveat.variable,
+          fraunces.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">

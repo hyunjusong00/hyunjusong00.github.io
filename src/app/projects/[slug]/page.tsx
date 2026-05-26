@@ -73,7 +73,7 @@ export default async function ProjectCaseStudy({
           <span>{project.dates}</span>
           {project.role && <span>· {project.role}</span>}
         </div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+        <h1 className="font-[family-name:var(--font-serif)] text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
           {project.title}
         </h1>
         <p className="text-muted-foreground md:text-lg leading-relaxed">
@@ -140,7 +140,7 @@ export default async function ProjectCaseStudy({
         </div>
       )}
 
-      <article className="prose max-w-none text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+      <article className="prose max-w-none text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert prose-headings:font-[family-name:var(--font-serif)] prose-headings:font-semibold prose-headings:tracking-tight prose-h2:text-foreground prose-h3:text-foreground">
         <MDXContent code={project.mdx} components={mdxComponents} />
       </article>
     </section>

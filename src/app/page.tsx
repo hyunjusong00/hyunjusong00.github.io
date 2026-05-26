@@ -46,7 +46,7 @@ export default function Page() {
             <div className="flex flex-col gap-1">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+                className="font-[family-name:var(--font-serif)] text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
                 yOffset={12}
                 text="HyunJu (Elle) Song"
               />
