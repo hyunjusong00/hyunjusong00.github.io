@@ -289,10 +289,10 @@ export const DATA = {
     {
       title: "Divers(C)ity",
       href: "/projects/divers-city",
-      dates: "2025 · 2nd Place",
+      dates: "2025 · Award",
       active: false,
       description:
-        "Global platform for migrant worker rights, career mobility, and employer communication. Five-module architecture combining AI personalization and blockchain verification. Authored a 16-page proposal and designed 8+ prototype screens solo. 2nd Place, 2025 Global Co-Prosperity Academic Conference.",
+        "Global platform for migrant worker rights, career mobility, and employer communication. Five-module architecture combining AI personalization and blockchain verification. Authored a 16-page proposal and designed 8+ prototype screens solo. Awarded at the 2025 Global Co-Prosperity Academic Conference.",
       technologies: [
         "Platform Design",
         "AI",
@@ -307,10 +307,10 @@ export const DATA = {
     {
       title: "AI Pet Insurance Platform",
       href: "/projects/pet-insurance",
-      dates: "2023 · 2nd Place",
+      dates: "2023 · Award",
       active: false,
       description:
-        "Concept proposal for an AI-powered pet insurance platform matching users with plans based on wearable health data. Combined collaborative and content-based filtering for personalization. 2nd Place, 2023 Kookmin MIS × Finance Academic Conference.",
+        "Concept proposal for an AI-powered pet insurance platform matching users with plans based on wearable health data. Combined collaborative and content-based filtering for personalization. Awarded at the 2023 Kookmin MIS × Finance Academic Conference.",
       technologies: [
         "Service Design",
         "AI Recommendation",
@@ -332,7 +332,7 @@ export const DATA = {
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
-      title: "2nd Place — Global Co-Prosperity Academic Conference",
+      title: "Award — Global Co-Prosperity Academic Conference",
       dates: "2025",
       location: "Kookmin University HUSS",
       description:
@@ -341,7 +341,7 @@ export const DATA = {
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
-      title: "2nd Place — MIS × Finance Academic Conference",
+      title: "Award — MIS × Finance Academic Conference",
       dates: "2023",
       location: "Kookmin University",
       description:
