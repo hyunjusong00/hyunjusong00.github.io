@@ -2,7 +2,7 @@
 title: "Fastlane"
 dates: "Mar 2026 — Jun 2026"
 role: "Product Manager"
-summary: "AI handles the first round of judging. Humans only weigh in where the AI disagrees with itself."
+summary: "AI-assisted first-round screening platform for competitions, grants, and open calls."
 coverImage: "/fastlane.png"
 liveUrl: "https://fastlane-tem.vercel.app/"
 technologies:
@@ -14,51 +14,75 @@ technologies:
   - "SaaS"
 ---
 
-## The problem
+## Overview
 
-Anyone who has run a hackathon, grant program, or open call knows the pain. You collect 50 submissions in two weeks. Then you ask 5 to 10 judges to read every one, score against rubrics most of them never fully internalized, and somehow produce a fair ranking by next Monday.
+Fastlane is an AI-assisted evaluation platform designed to reduce reviewer workload during first-round screening.
 
-Judges get fatigue. Rubric drift sneaks in by submission 30. Half the disagreements that come back aren't real disagreements at all. They're two people emphasizing different criteria.
+The idea started from a simple problem. Organizers receive dozens or sometimes hundreds of submissions, but human judges have limited time and often interpret rubrics differently. Even when everyone tries to evaluate fairly, inconsistency naturally appears as reviewers get tired or focus on different criteria.
 
-Most existing tools digitize the submission form but not the actual judging work. The bottleneck stays in the same place.
+Most existing platforms digitize the application process but still leave the actual evaluation work entirely to humans. We wanted to focus on that bottleneck itself.
+
+Instead of trying to fully replace human judgment, Fastlane helps route attention toward the submissions that actually require human review.
 
 ## My role
 
-PM on a small team. I own product direction, the rubric-to-agent translation layer, and the user flow for both organizers (uploading rubrics, reviewing flagged items) and submitters (a portal that doesn't feel like applying for a passport).
+I worked as the PM on a small team and focused on:
 
-## Key decisions
+- product direction
+- evaluation flow design
+- rubric-to-agent prompt structure
+- organizer and submitter user experience
 
-### A 3-pass scoring system instead of a single LLM call
+I mainly worked on defining how the AI evaluation pipeline should behave and how organizers would interact with uncertain or disputed results.
 
-A single LLM scoring pass gives you confident answers that are wrong half the time. We use three passes:
+## Key product decisions
 
-1. **Draft.** The optimistic read. What's the strongest version of this submission?
-2. **Skeptic.** The adversarial read. Where does this fall apart?
-3. **Judge.** Weighted consensus between the two, with the rubric as the final reference.
+### 1. Three-pass evaluation system
 
-The 3-pass design also produces a natural signal for what to escalate. If Draft and Skeptic agree, the Judge call is high-confidence. If they disagree wildly, that's exactly where a human needs to look.
+Rather than relying on a single LLM response, we designed a three-step evaluation structure.
 
-### Variance detection instead of a fixed score threshold
+- **Draft**: evaluates the strongest interpretation of the submission
+- **Skeptic**: identifies weaknesses, risks, and unclear areas
+- **Judge**: compares both perspectives and produces the final score using the rubric as reference
 
-Most platforms route to humans based on absolute score. We route based on internal disagreement. A submission everyone scores around a 5 doesn't really need a human. A submission with high variance between Draft and Skeptic does.
+This structure helped us detect disagreement inside the AI process itself. If the outputs were highly inconsistent, the submission would automatically be escalated for human review.
 
-The goal here was less about identifying the best ideas and more about identifying the ones where the AI's own confidence couldn't carry the decision on its own. That reframed the product from "AI does the judging" to "AI handles the easy calls so humans can spend their time on the hard ones."
+### 2. Variance-based escalation
 
-### A submission portal that doesn't feel like a government form
+Most evaluation systems escalate submissions based on low scores. We approached it differently.
 
-For submitters, the upload experience matters almost as much as the judging. We made the portal feel like a deal-flow page rather than a public-sector application. PDF or link upload. Short structured fields. Validation that doesn't punish you for line breaks.
+Instead of asking "Which submissions scored badly?", we asked: "Which submissions is the AI least confident about?"
 
-## What's shipped
+Submissions with high disagreement between evaluation passes were prioritized for human review, while high-confidence cases could move forward automatically.
 
-- Live MVP at [fastlane-tem.vercel.app](https://fastlane-tem.vercel.app/)
-- Rubric-driven prompt generation, so organizers don't write prompts themselves
-- 3-pass scoring pipeline with variance tracking
-- Escalation queue surfaced to organizers when AI scoring is shaky
-- Real-time leaderboard per competition
-- Audit trail per decision
+This shifted the product away from "AI replaces judges" toward "AI helps humans spend time where judgment matters most."
 
-## What this taught me
+### 3. Simplified submission experience
 
-Honestly, the biggest takeaway from Fastlane has been that AI evaluation tools don't work by replacing judgment. They work by routing it. The interesting product question isn't whether the AI can score correctly. It's whether the AI can tell when it shouldn't be the one scoring at all.
+We also focused heavily on the applicant experience.
 
-That framing has been quietly changing how I think about the investor-side experience in Trywepp too. Both products are doing the same thing underneath: trying to protect human attention for the calls only humans should be making.
+Many submission platforms feel overly administrative and difficult to use, especially for students or early-stage founders. We simplified the flow by supporting:
+
+- PDF or link uploads
+- short structured responses
+- lightweight validation
+- faster completion flow
+
+The goal was to reduce friction while still collecting structured information for evaluation.
+
+## What we built
+
+- Live MVP deployment
+- Rubric-driven prompt generation
+- Multi-pass AI scoring pipeline
+- Variance tracking and escalation queue
+- Real-time competition leaderboard
+- Audit trail for evaluation decisions
+
+## What I learned
+
+The biggest lesson from Fastlane was that AI evaluation systems work best when they support human judgment rather than replace it.
+
+The most important product question was not "Can AI evaluate correctly?" It was "Can AI recognize when a human should step in?"
+
+That idea changed the way I think about AI products more broadly. Good AI systems are often less about removing humans from decisions and more about helping people focus their attention where it matters most.
