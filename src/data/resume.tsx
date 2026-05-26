@@ -65,6 +65,18 @@ export const DATA = {
   },
   work: [
     {
+      company: "Fastlane",
+      href: "https://fastlane-tem.vercel.app/",
+      badges: [],
+      location: "Irvine, CA",
+      title: "Product Manager",
+      logoUrl: "/fastlane-logo.png",
+      start: "March 2026",
+      end: "Present",
+      description:
+        "Lead product direction on an AI-powered first-round judging platform for contests, grants, and hackathons. Built a 3-pass scoring system (Draft → Skeptic → Judge) with variance-based escalation to humans. Officially adopted at Kookmin SYNC 2026 as the platform's first live deployment.",
+    },
+    {
       company: "Trywepp",
       href: "https://try-flow-ten.vercel.app/",
       badges: [],
@@ -183,25 +195,6 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Trywepp",
-      href: "/projects/trywepp",
-      dates: "2026 · In Progress",
-      active: true,
-      description:
-        "An AI platform connecting VCs with early-stage founders. Architected a multi-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
-      technologies: [
-        "Product Management",
-        "Prompt Engineering",
-        "Agent Architecture",
-        "React",
-        "LLM",
-        "SaaS",
-      ],
-      links: [],
-      image: "/trywepp-landing.png",
-      video: "",
-    },
-    {
       title: "Sellii",
       href: "/projects/sellii",
       dates: "2026 · In Progress",
@@ -220,6 +213,25 @@ export const DATA = {
       ],
       links: [],
       image: "/sellii-discover.jpeg",
+      video: "",
+    },
+    {
+      title: "Trywepp",
+      href: "/projects/trywepp",
+      dates: "2026 · In Progress",
+      active: true,
+      description:
+        "An AI platform connecting VCs with early-stage founders. Architected a multi-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
+      technologies: [
+        "Product Management",
+        "Prompt Engineering",
+        "Agent Architecture",
+        "React",
+        "LLM",
+        "SaaS",
+      ],
+      links: [],
+      image: "/trywepp-landing.png",
       video: "",
     },
     {
