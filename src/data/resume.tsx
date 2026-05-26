@@ -72,7 +72,7 @@ export const DATA = {
       title: "Product Manager",
       logoUrl: "/fastlane-logo.png",
       start: "March 2026",
-      end: "Present",
+      end: "June 2026",
       description:
         "Lead product direction on an AI-powered first-round judging platform for contests, grants, and hackathons. Built a 3-pass scoring system (Draft → Skeptic → Judge) with variance-based escalation to humans. Officially adopted at Kookmin SYNC 2026 as the platform's first live deployment.",
     },
@@ -83,8 +83,8 @@ export const DATA = {
       location: "Irvine, CA",
       title: "Product Manager",
       logoUrl: "/trywepp-logo.png",
-      start: "April 2026",
-      end: "Present",
+      start: "March 2026",
+      end: "June 2026",
       description:
         "Lead product direction for an AI platform connecting VCs with early-stage founders. Drove the pivot from peer feedback to a two-sided market. Designed a three-tier SaaS model (Free / Plus / Pro) and architected a multi-agent AI analysis system with a synthesizer layer. Built a prompt engineering overlay system for category-specific domain knowledge. Preparing pre-launch user testing with founders and market researchers.",
     },
@@ -95,8 +95,8 @@ export const DATA = {
       location: "Remote · Kookmin Global PBL",
       title: "Product Designer & Marketing Lead",
       logoUrl: "/sellii.png",
-      start: "February 2026",
-      end: "Present",
+      start: "March 2026",
+      end: "June 2026",
       description:
         "AI agent that hunts underpriced deals on secondhand marketplaces using GPT-4o Vision and Playwright. Own user flow and screen design for the full agent interaction loop — the core UX challenge is trust when users hand over marketplace actions to AI. Write video scripts and produce launch content for Reddit and Instagram.",
     },
@@ -159,7 +159,7 @@ export const DATA = {
     {
       title: "Fastlane",
       href: "/projects/fastlane",
-      dates: "Mar 2026 — Apr 2026 · In Progress",
+      dates: "Mar 2026 — Jun 2026",
       active: true,
       description:
         "AI-powered first-round judging platform for contests, grants, and hackathons. Scores every submission against the same rubric, flags items where the AI disagrees with itself, and escalates only those to human reviewers. Built on a Draft → Skeptic → Judge three-pass verification system.",
@@ -197,7 +197,7 @@ export const DATA = {
     {
       title: "Sellii",
       href: "/projects/sellii",
-      dates: "2026 · In Progress",
+      dates: "Mar 2026 — Jun 2026",
       active: true,
       description:
         "AI agent that scans Facebook Marketplace, OfferUp, and Craigslist using GPT-4o Vision + Playwright. Cross-checks eBay prices and notifies users of underpriced deals. Users choose their automation level — alerts only, drafted messages, or fully automated.",
@@ -218,7 +218,7 @@ export const DATA = {
     {
       title: "Trywepp",
       href: "/projects/trywepp",
-      dates: "2026 · In Progress",
+      dates: "Mar 2026 — Jun 2026",
       active: true,
       description:
         "An AI platform connecting VCs with early-stage founders. Architected a multi-agent analysis system with a prompt engineering overlay. Three-tier SaaS serving both founders (decision tool) and investors (discovery surface).",
