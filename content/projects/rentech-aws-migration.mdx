@@ -1,8 +1,8 @@
 ---
 title: "RenTech AWS Migration"
 dates: "Apr 2026 — May 2026 · Coursework Case"
-role: "Solutions Architect (Hypothetical Client)"
-summary: "A hybrid cloud proposal pitched to a $33B AUM quantitative hedge fund. Backtests move to AWS, live trading stays on-prem. Annual infrastructure cost drops from $36M to $25.5M."
+role: "Solutions Architect (Coursework Case)"
+summary: "Hybrid cloud migration proposal for a hypothetical quantitative hedge fund client. Annual infrastructure cost modeled to drop from $36M to $25.5M while keeping live trading on-prem."
 coverImage: "/rentech-aws-architecture.png"
 technologies:
   - "Solutions Architecture"
@@ -12,85 +12,114 @@ technologies:
   - "Technical Strategy"
 ---
 
-> This is a coursework case study from Kookmin's AI for Business track at the Global PBL Program in Irvine. RenTech is treated here as a hypothetical client. The proposal scenario, financials, and architecture decisions are mine.
+## Overview
+
+This project was developed as part of Kookmin University's AI for Business track during the Global PBL Program in Irvine. In this coursework case study, Renaissance Technologies (RenTech) was treated as a hypothetical client.
+
+The project focused on designing a hybrid cloud migration strategy for a large quantitative hedge fund managing high-volume historical market data and compute-intensive research workloads.
+
+The goal was not to move everything to AWS, but to determine which workloads were appropriate for cloud migration and which should remain on-premise due to latency, security, and operational constraints.
 
 ## The problem
 
-Renaissance Technologies (RenTech) is a $33B AUM quantitative hedge fund. About 350 employees, petabyte-scale historical market data, and a research culture that runs heavy backtests at the end of every quarter.
+RenTech's research environment relies heavily on large-scale backtesting and model experimentation. These workloads require massive compute resources during quarter-end research cycles but remain underutilized for much of the year.
 
-The capacity problem is shape, not size. Their on-prem GPU cluster (around 150 to 200 DGX H100 units) runs at roughly 30% utilization for most of the year. Then at quarter-end, every researcher tries to test new strategies at the same time, and the cluster becomes the bottleneck.
+At the same time, certain systems, especially live trading infrastructure, cannot tolerate additional latency or external exposure. For a quantitative trading firm, execution speed and protection of proprietary strategies are critical.
 
-Moving everything to cloud sounds like the obvious answer. It isn't. For a firm whose live trading depends on microsecond decisions, you can't lift production execution to a shared infrastructure. Latency on live orders, custody of proprietary alpha, and integrity of execution are all reasons to keep certain workloads on dedicated hardware in their own data center.
+This created a key architectural question:
 
-The actual question is which workloads cross the line.
+Which workloads should remain on-premise, and which could benefit from cloud elasticity?
 
 ## My role
 
-Solutions Architect on a 4-person AWS sales team simulation, pitching the migration plan to RenTech leadership (CTO, Head of Quant Research, Head of Infrastructure, CFO). I owned the architecture design and the cost model.
+I worked as the Solutions Architect on a four-person AWS sales simulation team.
 
-The proposal went through 7 iterations before landing on v7. The early versions over-committed to AWS. We tried to move kdb+ to AWS FinSpace, archive everything via Snowmobile, and assume RenTech would accept a near-total infrastructure rewrite. The later versions kept tightening the on-prem perimeter, until the question shifted from "can this move" to "should this move."
+My responsibilities included:
 
-## Key decisions
+- hybrid architecture design
+- workload separation strategy
+- infrastructure cost modeling
+- migration boundary decisions
+- technical presentation to hypothetical stakeholders
 
-### The hybrid boundary: backtests move, live trading stays
+The proposal went through multiple revisions as we narrowed the migration scope and reduced unnecessary complexity.
 
-The line we drew:
+## Key architectural decisions
 
-- **On-prem**: live trading execution, model serving, proprietary alpha IP, low-latency networking. Speed and integrity are non-negotiable here. Microseconds matter. Data custody matters more.
-- **AWS**: quarterly backtesting compute, large-scale model training, historical data storage.
+### 1. Hybrid workload separation
 
-Backtests are the right shape for cloud. Compute-heavy, time-bounded, and they don't talk to the live market. Burst once a quarter, idle for three months, burst again.
+The final proposal separated workloads based on latency sensitivity and operational risk.
 
-### Burst capacity instead of fixed
+**On-premise systems included:**
 
-This was the biggest cost lever in the model. Instead of buying enough H100s to handle quarter-end peak (which leaves them mostly idle for nine months of the year), we scaled from 20 GPUs as baseline up to 200 at quarter-end on p5.48xlarge. Same peak compute available. No idle hardware bill in the off-quarter.
+- live trading execution
+- model serving
+- proprietary alpha infrastructure
+- low-latency networking systems
 
-CPU side, the same logic. c7i.48xlarge scaled from 100 to 500 units, validated against the existing Xeon 8480+ for behavioral equivalence so the existing models wouldn't drift.
+**AWS-hosted systems included:**
 
-### Storage tiering, not lift-and-shift
+- quarterly backtesting workloads
+- large-scale model training
+- historical market data storage
 
-Historical market data is around 25 PB. Most of it is rarely touched. S3 with three tiers cleared this:
+The reasoning was that backtesting workloads are highly compute-intensive but time-bounded, making them well suited for burst-based cloud scaling.
 
-- **Standard** for the current and prior quarter
-- **Infrequent Access** for the prior 2 to 3 years
-- **Glacier Deep Archive** for everything older, including compliance retention
+### 2. Burst-based compute scaling
 
-The initial transfer compressed down to roughly 40 TB and moved over Direct Connect 100 Gbps × 2 (dual circuit, no single-link failure mode). After that, ongoing replication is incremental and the AWS side never has to re-read the original archive.
+Instead of maintaining enough GPU infrastructure to handle quarter-end peaks year-round, the proposal used AWS elastic scaling for temporary compute demand.
 
-### What got cut between v5 and v7
+GPU infrastructure scaled dynamically from:
 
-AWS deprecated both FinSpace and Snowmobile by the time we finalized v7. Snowball Edge was also blocked by RenTech security review (no physical-device ingress to their data center).
+- 20 baseline GPUs
+- up to 200 GPUs during quarter-end backtesting periods
 
-That left us with two real constraints:
+CPU infrastructure followed a similar model using scalable EC2 instances.
 
-- **No managed kdb+.** We replaced FinSpace's managed runtime with self-managed kdb+ on EC2 backed by S3. RenTech's kdb+ deployment is heavily customized anyway (internal indexing, proprietary loaders, alpha-specific schemas), so a managed service would have hit operational friction even if it had survived.
-- **No physical data transfer.** Snowmobile and Snowball Edge are both off the table. The 40 TB compressed pipe over Direct Connect is the only path in.
+This significantly reduced idle infrastructure costs while still preserving peak compute capacity during research cycles.
 
-Both cuts simplified the proposal. Fewer moving parts, fewer vendor dependencies, fewer surfaces RenTech's security team has to approve.
+### 3. Tiered storage architecture
 
-<img
-  src="/rentech-aws-architecture.png"
-  alt="Hybrid architecture diagram: on-prem live trading + AWS backtest burst"
-  className="rounded-xl w-full border border-border my-8"
-/>
+The proposal also redesigned historical market data storage using a three-tier S3 strategy:
 
-## What the v7 plan looks like
+- S3 Standard for recent data
+- S3 Infrequent Access for mid-term storage
+- Glacier Deep Archive for long-term retention and compliance storage
 
-| Category | Before (all on-prem) | After (hybrid) |
-|---|---|---|
-| **Annual infrastructure cost** | $36M / year | $25.5M / year (−29%) |
-| **Storage** | NVMe / HDD / Tape, 25 PB+ | S3 3-tier (Standard, IA, Glacier Deep Archive) |
-| **Time-series engine** | Self-hosted kdb+ cluster | kdb+ on EC2 + S3 (self-managed) |
-| **GPU** | DGX H100, 150 to 200 units, ~30% utilization | p5.48xlarge, 20 → 200 (quarter-end burst) |
-| **CPU** | Xeon 8480+, 800 to 1,200 units | c7i.48xlarge, 100 → 500 (quarter-end burst) |
-| **High-memory** | 2 to 4 TB RAM servers, 30 to 50 units | r7iz, 5 → 20 units (1 TB RAM, large jobs split) |
-| **Network** | InfiniBand 200 Gbps internal | Direct Connect 100 Gbps × 2, ~40 TB compressed initial transfer |
-| **Sensitive workload exposure** | On-prem only | On-prem only (unchanged) |
+This reduced long-term storage costs while keeping frequently accessed datasets readily available.
 
-Cost split after migration: $15M on-prem (live trading + IP-sensitive workloads) + $10.5M AWS (backtest compute + storage). Total $25.5M.
+### 4. Simplifying the migration scope
 
-## What this taught me
+One of the biggest changes between early and final proposal versions was reducing unnecessary migration complexity.
 
-The thing I underestimated going in was how much of solutions architecture is actually about *what stays out of scope*. v1 wanted to move everything. v7 keeps the cloud perimeter tight on purpose. The CFO question (cost) and the CTO question (risk) only meet in the middle when the architecture knows exactly where to draw the line.
+Earlier versions attempted to migrate more aggressively using services such as AWS FinSpace and Snowmobile. However, later revisions prioritized:
 
-Coming from product work, the parallel was clearer than I expected. Good product work cuts features that don't earn their place. Good cloud architecture cuts workloads that don't earn the migration. Both jobs are about resisting the urge to include everything.
+- fewer vendor dependencies
+- tighter security boundaries
+- simpler operational architecture
+- lower migration risk
+
+The final proposal favored a more conservative hybrid approach rather than a full infrastructure rewrite.
+
+## Final outcome
+
+The final architecture reduced estimated annual infrastructure costs from approximately **$36M/year to $25.5M/year**, while preserving:
+
+- low-latency live trading systems
+- proprietary infrastructure security
+- operational control over sensitive workloads
+
+The proposal ultimately balanced:
+
+- cloud scalability
+- cost efficiency
+- operational risk
+- performance requirements
+
+## What I learned
+
+The biggest lesson from this project was that good architecture decisions are often about defining boundaries clearly.
+
+At the beginning of the project, our team focused too much on how much could move to the cloud. Over time, the discussion shifted toward which workloads actually should move.
+
+That changed how I think about technical strategy more broadly. Good system design is not about maximizing complexity or migration scope. It is about identifying where different systems operate most effectively and making tradeoffs intentionally.
