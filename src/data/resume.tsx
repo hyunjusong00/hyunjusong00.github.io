@@ -146,7 +146,7 @@ export const DATA = {
   projects: [
     {
       title: "Fastlane",
-      href: "https://fastlane-tem.vercel.app/",
+      href: "/projects/fastlane",
       dates: "Mar 2026 — Apr 2026 · In Progress",
       active: true,
       description:

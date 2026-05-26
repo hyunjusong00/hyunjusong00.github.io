@@ -1,0 +1,64 @@
+---
+title: "Fastlane"
+dates: "Mar 2026 — Apr 2026 · In Progress"
+role: "Product Manager"
+summary: "AI handles the first round of judging. Humans only weigh in where the AI disagrees with itself."
+coverImage: "/fastlane.png"
+liveUrl: "https://fastlane-tem.vercel.app/"
+technologies:
+  - "Product Management"
+  - "AI Evaluation"
+  - "Multi-agent System"
+  - "Prompt Engineering"
+  - "React"
+  - "SaaS"
+---
+
+## The problem
+
+Anyone who has run a hackathon, grant program, or open call knows the pain. You collect 50 submissions in two weeks. Then you ask 5 to 10 judges to read every one, score against rubrics most of them never fully internalized, and somehow produce a fair ranking by next Monday.
+
+Judges get fatigue. Rubric drift sneaks in by submission 30. Half the disagreements that come back aren't real disagreements at all. They're two people emphasizing different criteria.
+
+Most existing tools digitize the submission form but not the actual judging work. The bottleneck stays in the same place.
+
+## My role
+
+PM on a small team. I own product direction, the rubric-to-agent translation layer, and the user flow for both organizers (uploading rubrics, reviewing flagged items) and submitters (a portal that doesn't feel like applying for a passport).
+
+## Key decisions
+
+### A 3-pass scoring system instead of a single LLM call
+
+A single LLM scoring pass gives you confident answers that are wrong half the time. We use three passes:
+
+1. **Draft.** The optimistic read. What's the strongest version of this submission?
+2. **Skeptic.** The adversarial read. Where does this fall apart?
+3. **Judge.** Weighted consensus between the two, with the rubric as the final reference.
+
+The 3-pass design also produces a natural signal for what to escalate. If Draft and Skeptic agree, the Judge call is high-confidence. If they disagree wildly, that's exactly where a human needs to look.
+
+### Variance detection instead of a fixed score threshold
+
+Most platforms route to humans based on absolute score. We route based on internal disagreement. A submission everyone scores around a 5 doesn't really need a human. A submission with high variance between Draft and Skeptic does.
+
+The goal here was less about identifying the best ideas and more about identifying the ones where the AI's own confidence couldn't carry the decision on its own. That reframed the product from "AI does the judging" to "AI handles the easy calls so humans can spend their time on the hard ones."
+
+### A submission portal that doesn't feel like a government form
+
+For submitters, the upload experience matters almost as much as the judging. We made the portal feel like a deal-flow page rather than a public-sector application. PDF or link upload. Short structured fields. Validation that doesn't punish you for line breaks.
+
+## What's shipped
+
+- Live MVP at [fastlane-tem.vercel.app](https://fastlane-tem.vercel.app/)
+- Rubric-driven prompt generation, so organizers don't write prompts themselves
+- 3-pass scoring pipeline with variance tracking
+- Escalation queue surfaced to organizers when AI scoring is shaky
+- Real-time leaderboard per competition
+- Audit trail per decision
+
+## What this taught me
+
+Honestly, the biggest takeaway from Fastlane has been that AI evaluation tools don't work by replacing judgment. They work by routing it. The interesting product question isn't whether the AI can score correctly. It's whether the AI can tell when it shouldn't be the one scoring at all.
+
+That framing has been quietly changing how I think about the investor-side experience in Trywepp too. Both products are doing the same thing underneath: trying to protect human attention for the calls only humans should be making.
