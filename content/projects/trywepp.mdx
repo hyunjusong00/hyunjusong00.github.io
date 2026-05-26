@@ -2,7 +2,7 @@
 title: "Trywepp"
 dates: "Mar 2026 — Jun 2026"
 role: "Product Manager"
-summary: "Pre-seed deal flow — for both sides."
+summary: "AI-assisted idea validation platform connecting early-stage founders and pre-seed investors."
 coverImage: "/trywepp-landing.png"
 coverVideo: "/trywepp-demo.mp4"
 liveUrl: "https://try-flow-ten.vercel.app/"
@@ -15,88 +15,163 @@ technologies:
   - "SaaS"
 ---
 
-## The problem
+## Overview
 
-At pre-seed, founders and investors are looking for the same thing from opposite directions. Founders want fast, structured signal on whether an idea is worth pursuing — before they spend three months building. Investors want to see ideas before they're packaged into decks, when conviction is still soft and the founder is still talking to anyone.
+Trywepp is an AI-based platform designed to help founders evaluate startup ideas before building, while also giving early-stage investors visibility into ideas before they become formal companies.
 
-Existing tools sit at the extremes. ChatGPT-style validators hand you a single score with no consequences attached. McKinsey-style market reports take weeks and cost more than the validation is worth. AngelList shows you companies that already exist. Nothing fills the gap where the actual decision happens.
+The project started from a simple observation. Founders and investors are often looking for the same thing from opposite directions.
 
-The first version of Trywepp tried to fill that gap with peer feedback — Software students reviewing each other's projects. The hypothesis was builders helping builders. The data made it clear within a month: of the first 30 sign-ups, four came back after week one. The most frequent comment on submissions was "nice UI." Students reviewing students produced encouragement, not signal.
+Founders want fast and structured feedback before spending months building a product. Investors want earlier access to promising ideas before they are fully packaged into pitch decks and fundraising rounds.
+
+Most existing tools did not fully address this gap. AI idea validators often produced shallow scores without meaningful reasoning, while traditional consulting-style research was too slow and expensive for very early-stage ideas.
+
+Trywepp was designed to create a middle layer between those two extremes.
+
+## Early direction and pivot
+
+The first version of Trywepp focused on peer feedback between student builders.
+
+The original idea was that software students could review each other's startup ideas and provide useful validation before development. However, early retention data showed that the model was not producing meaningful engagement.
+
+Out of the first 30 users, only a small number returned after the first week. Most feedback also lacked depth and focused more on encouragement than actual evaluation.
+
+After several user conversations and discussions with early-stage investors, the product direction shifted toward a two-sided platform connecting founders and pre-seed investors.
+
+This changed the product from "builders helping builders" to "structured early-stage signal for both founders and investors."
 
 ## My role
 
-PM for a team of four — one developer, two marketers, and me. I own product direction, the AI evaluation architecture, the pivot calls, and a meaningful slice of the frontend code (Next.js / React).
+I worked as the PM on a four-person team consisting of:
 
-Picking up Git and the React stack mid-build changed how the team worked. Specs became components instead of "wait, that's not what I meant" loops. It also forced every product decision through one filter — *is this worth three days of someone else's life?* Pure PMs sometimes forget to ask that.
+- one developer
+- two marketers
+- myself
 
-## Key decisions
+My responsibilities included:
 
-### Pivoted from peer feedback to a two-sided market
+- product direction
+- AI evaluation system design
+- prompt architecture
+- pivot and prioritization decisions
+- frontend implementation using Next.js and React
 
-The 4-out-of-30 retention curve didn't lie. Builders helping builders is a nice idea; it's not a market. Trywepp pivoted to founders × pre-seed VCs. Both sides have skin in the game, and each side solves the other's cold-start problem — investors subscribe because there's pre-product deal flow they can't get elsewhere, founders submit because someone with capital might actually be reading.
+During development, I also learned Git workflows and frontend development to reduce communication overhead between planning and implementation.
 
-The pivot wasn't panic. It was retention numbers + seven angel-investor conversations over six weeks + the honest acceptance that the original framing didn't survive contact with users.
+## Key product decisions
 
-### Cut the analysis system from 8 agents to 6
+### 1. Pivoting to a two-sided market
 
-The MVP shipped with 8 evaluation agents because eight angles felt thorough. After sitting with those angel investors and going deep into how YC and a16z actually evaluate ideas (Sequoia BP template, Thiel's seven questions, NFX on network effects), I cut to 6:
+One of the most important decisions was moving away from peer validation and focusing on founders and investors instead.
 
-`market_size` · `problem_urgency` · `timing` · `product` · `defensibility` · `business_model`
+The shift happened after:
 
-What got cut, and why:
+- low early retention
+- repeated user feedback
+- conversations with angel investors
+- clearer understanding of pre-seed workflows
 
-- **Regulation** → not a standalone axis; absorbed into business-model viability.
-- **Competition** → absorbed into defensibility (Thiel: "competition is for losers").
-- **User acquisition** → CAC belongs inside business-model unit economics; "acquisition strategy" alone is meaningless without the rest.
-- **Technical difficulty** → renamed to *product*, reframed from "is this hard to build" to "is this 10× better."
+The new structure created stronger incentives on both sides:
 
-More always feels safer when you don't know who you're building for. The cut was obvious in week six and would have been impossible in week one.
+- founders submitted ideas for meaningful evaluation and visibility
+- investors gained access to earlier deal flow
 
-### Re-architected the analysis pipeline for speed
+### 2. Simplifying the evaluation framework
 
-The original three-pass per agent (Draft → Skeptic → Judge) was 50+ seconds end-to-end. Two changes brought it to ~30s without losing analytical depth:
+The first version of the AI evaluation system used eight evaluation agents. Over time, the framework was simplified into six core dimensions:
 
-1. **Skeptic merged into Judge.** The Judge prompt now does internal critique in Step 1 and reconciliation in Step 2 — same scoring weights (60% skeptic / 40% draft), one fewer LLM call per agent.
-2. **Tavily search parallelized with Draft generation.** Draft no longer waits for evidence; Judge integrates it during reconciliation. Saves 2–3 seconds per agent.
+- market size
+- problem urgency
+- timing
+- product quality
+- defensibility
+- business model
 
-Plus removed the redundant LLM quality gate (the heuristic gate already catches keyboard mash) and the synthesizer-critique pass (it almost never produced changes the agent layer hadn't already made).
+This decision came after researching how firms such as Y Combinator and a16z evaluate early-stage startups.
 
-### Built the frontend myself
+Reducing the number of evaluation categories improved clarity and reduced overlap between scoring dimensions.
 
-Specs that would have taken a week of Figma → meeting → developer → revision rounds shipped in an afternoon. The bigger effect was filtering — when you have to write the component, *is this worth it?* becomes a real question, not a stylistic one.
+### 3. Rebuilding the AI analysis pipeline for speed
 
-A concrete example: the dashboard had a right-rail with stats, recent activity, and quick-action shortcuts. Sitting in the code, it became obvious that the quick-actions panel was 100% duplicate of the sidebar nav. Killed it. The stats panel was abstract numbers nobody would act on. Replaced it with a horizontal strip showing *Last submission · Best signal · Reports complete.* The page got cleaner, the dashboard got sharper, and no committee discussion was required.
+The original evaluation pipeline used a three-step structure for every agent:
 
-## What's shipped
+- Draft
+- Skeptic
+- Judge
 
-**Two-sided product surface**
-- Founder side: submit through 6 axis-specific structured questions, receive a signal report in ~30s, iterate up to 3 times per idea, optional public profile (`/u/[id]`) with bio + social links.
-- Investor side (Pro): curated market view across 9 categories, watchlist with social-proof signal (*N investors watching*), direct-intro flow.
+While this produced detailed outputs, total response time exceeded 50 seconds.
 
-**6-agent AI analysis pipeline**
-- 6 axes, each scored independently by a Draft → Judge two-pass agent.
-- Tavily-backed external evidence retrieval per axis, parallelized with Draft.
-- Synthesizer layer producing a composite score via weighted arithmetic mean (the original harmonic mean over-penalized any single weak axis).
-- Module-scope prompt cache + lazy quality gate: end-to-end ~30s.
+The pipeline was later redesigned into a lighter two-step structure:
 
-**Category-specific prompt overlay**
-- 9 categories (SaaS, Consumer, Fintech, Health, Hardware, etc.) with per-axis customizations layered on a SaaS base — the Health `market_size` agent weights reimbursement; the Fintech `timing` agent weights regulatory rule changes.
+- Draft
+- Judge (including internal critique)
 
-**Three-tier pricing**
-- Free / Plus $10 / Pro $20, with explicit role mapping (Founders → Free / Plus, Investors → Pro) and a *For Founders / For Investors* toggle on `/pricing` instead of one shared menu.
+Additional optimizations included:
 
-**Pre-launch GTM**
-- Reddit-based discovery experiments running pre-launch.
-- 6 user interviews (founders + aspiring investors / market researchers) lined up before public release.
+- parallelized external search retrieval
+- prompt caching
+- removal of redundant quality-check layers
 
-## What this taught me
+This reduced average report generation time to approximately 30 seconds while maintaining analytical depth.
 
-That the answer to *what should I cut?* is always obvious once you know who the user is — and almost always invisible until then. The 8-to-6 agent decision was easy in week six and would have been impossible in week one.
+### 4. Building frontend components directly
 
-That picking up unfamiliar code (React, Git workflows) as a PM changes how the whole team operates — but only if you actually ship, not just demo.
+During the project, I began contributing directly to the frontend using React and Next.js.
 
-That two-sided markets are mostly a sequencing problem, not a feature problem. The wrong order kills you. The right order makes both sides bootstrap each other.
+This changed the product workflow significantly because product decisions could immediately be tested in implementation instead of passing through multiple revision cycles.
 
-## Read more
+It also made prioritization more practical. Features were evaluated not only based on ideas, but also based on implementation cost, usability, and long-term clarity.
 
-The longer-form story lives on the blog: [From Everytime to VCs: How Trywepp Found Its Real Market](/blog/trywepp-pivot).
+## What we built
+
+### Founder side
+
+- Structured startup idea submission flow
+- Six-axis AI evaluation reports
+- ~30 second report generation
+- Multiple idea iteration support
+- Optional public founder profile pages
+
+### Investor side
+
+- Curated startup idea discovery dashboard
+- Category-based market browsing
+- Watchlists and interest tracking
+- Founder introduction flow
+
+### AI infrastructure
+
+- Six-agent evaluation system
+- Tavily-supported external evidence retrieval
+- Weighted scoring system
+- Category-specific evaluation overlays
+- Prompt caching and optimization layers
+
+### Product and GTM
+
+- Three-tier pricing structure
+- Founder vs investor product segmentation
+- Reddit-based pre-launch discovery experiments
+- Founder and investor user interviews before launch
+
+## Current status
+
+The MVP is currently functional and undergoing continued testing and iteration.
+
+Key systems including the AI evaluation pipeline, founder submission flow, investor dashboard, and category-specific evaluation logic have already been implemented.
+
+The team is continuing to improve:
+
+- infrastructure efficiency
+- onboarding flow
+- evaluation quality
+- early-stage user acquisition
+
+## What I learned
+
+The biggest lesson from Trywepp was how important user clarity is in product decisions.
+
+At the beginning, many features and evaluation categories seemed useful in theory. But after talking directly with users and investors, it became much clearer which parts actually created value and which added unnecessary complexity.
+
+I also learned that working directly in the codebase changes how product decisions are made. Contributing to implementation made prioritization more realistic and helped reduce communication gaps inside the team.
+
+Finally, the project taught me that two-sided products depend heavily on sequencing. In marketplaces, solving the order of adoption is often more important than adding more features.
