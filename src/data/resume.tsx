@@ -145,6 +145,25 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Fastlane",
+      href: "https://fastlane-tem.vercel.app/",
+      dates: "Mar 2026 — Apr 2026 · In Progress",
+      active: true,
+      description:
+        "AI-powered first-round judging platform for contests, grants, and hackathons. Scores every submission against the same rubric, flags items where the AI disagrees with itself, and escalates only those to human reviewers. Built on a Draft → Skeptic → Judge three-pass verification system.",
+      technologies: [
+        "Product Management",
+        "AI Evaluation",
+        "Multi-agent System",
+        "Prompt Engineering",
+        "React",
+        "SaaS",
+      ],
+      links: [],
+      image: "/fastlane.png",
+      video: "",
+    },
+    {
       title: "Trywepp",
       href: "/projects/trywepp",
       dates: "2026 · In Progress",
