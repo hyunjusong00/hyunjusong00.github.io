@@ -164,6 +164,25 @@ export const DATA = {
       video: "",
     },
     {
+      title: "RenTech AWS Migration",
+      href: "/projects/rentech-aws-migration",
+      dates: "Apr 2026 — May 2026 · Coursework Case",
+      active: false,
+      description:
+        "Solutions Architecture case study for a hypothetical $33B AUM hedge fund. Hybrid cloud plan that keeps live trading on-prem and bursts quarterly backtests to AWS. Annual infrastructure cost modeled to drop from $36M to $25.5M.",
+      technologies: [
+        "Solutions Architecture",
+        "AWS",
+        "Hybrid Cloud",
+        "Cost Modeling",
+        "Technical Strategy",
+      ],
+      links: [],
+      image: "/rentech-aws-architecture.png",
+      imageFit: "contain" as const,
+      video: "",
+    },
+    {
       title: "Trywepp",
       href: "/projects/trywepp",
       dates: "2026 · In Progress",
