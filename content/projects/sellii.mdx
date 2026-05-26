@@ -2,7 +2,7 @@
 title: "Sellii"
 dates: "Mar 2026 — Jun 2026"
 role: "Product Designer · Marketing Lead"
-summary: "An AI agent that does the reseller's homework — but only as much as the user lets it."
+summary: "AI-assisted reseller agent for marketplace sourcing, pricing, and listing workflows."
 coverImage: "/sellii-discover.jpeg"
 technologies:
   - "Product Design"
@@ -12,78 +12,140 @@ technologies:
   - "Marketing"
 ---
 
+## Overview
+
+Sellii is an AI-assisted reseller tool designed to help users discover profitable listings across online marketplaces and reduce repetitive sourcing work.
+
+The project started from a common reseller problem. Finding good deals requires constantly checking multiple marketplaces, comparing resale prices manually, and reacting quickly before listings disappear.
+
+Most existing tools only solve part of the workflow. Some send listing alerts without evaluating profitability, while others help with price research but still require manual searching and listing management.
+
+Sellii was designed to connect those steps into a single workflow supported by an AI agent.
+
 ## The problem
 
-Reselling is two compounding problems. The first is *speed* — good listings get sniped within minutes of going up, so anyone serious refreshes Facebook Marketplace, OfferUp, and Craigslist multiple times an hour. The second is *signal* — a $60 sneaker is only worth grabbing if its eBay sold-comp average is significantly higher, and pulling that data manually for every candidate listing isn't realistic.
+For many resellers, sourcing inventory is both time-sensitive and repetitive.
 
-Existing tools solve one or the other. Reseller alert apps spam every new listing without filtering for actual margin. Price-research tools only run when you stop and feed them a query. Nothing closes the loop — discovery, pricing, message draft, listing generation — without losing accuracy or trust along the way.
+Users often refresh platforms such as Facebook Marketplace, OfferUp, and Craigslist throughout the day looking for underpriced items. Even after finding a listing, they still need to:
 
-Sellii is the loop, run by an AI agent.
+- compare resale prices
+- estimate profit margins
+- contact sellers
+- create resale listings manually
+
+This creates a workflow with high effort and inconsistent results.
+
+Our goal was to reduce that friction while still keeping users in control of important actions.
 
 ## My role
 
-Product Designer & Marketing Lead on a 3-person team. I own user flow and screen architecture across the entire agent interaction surface, the brand identity, and the launch content — video scripts + Reddit / Instagram posts — that translate *AI agent* from a technology label into a relatable habit.
+I worked as the Product Designer and Marketing Lead on a three-person team.
 
-## Key decisions
+My responsibilities included:
 
-### Three trust tiers, not one auto-pilot
+- user flow design
+- dashboard and interaction structure
+- automation approval UX
+- visual identity and branding
+- launch content strategy
+- Reddit and Instagram launch messaging
 
-The hard problem in agent UX isn't capability — it's trust. Users don't hand AI the keys to actual marketplace actions on day one, no matter how good the agent is. Sellii's response is a **three-tier automation system**:
+I mainly focused on designing how users would interact with the AI agent and how to make automation feel trustworthy rather than overwhelming.
 
-| Level | What it does |
-| --- | --- |
-| **1 — Alerts only** | The agent finds deals; the user does everything else manually. |
-| **2 — Drafts** | The agent prepares seller messages and eBay listings; the user reviews and approves before anything sends. |
-| **3 — Full auto** | The agent sends messages and lists items automatically; the user reviews after the fact. |
+## Key product decisions
 
-The tiers aren't pricing — they're a **trust gradient**. New users start at Level 1, watch the agent surface deals that turn out to be real, and graduate themselves to higher tiers when they're ready. That progression *is* the product, structured.
+### 1. Three-level automation system
 
-The whole interface — dashboard hierarchy, alert tone, approval flows — is designed so each tier feels native, not like a stripped-down version of the next one up.
+One of the biggest UX challenges with AI agents is trust.
 
-### Designed the agent as if it were a user
+Most users are not comfortable giving an AI full control immediately, especially when real money and marketplace accounts are involved. Because of this, we designed Sellii around three automation levels:
 
-Sellii's agent doesn't scrape HTML. It opens a real browser, takes screenshots, and reads them through GPT-4o vision — the same way a human reseller skims a feed. That choice has design implications: the agent has to *behave* like a user too. Pacing, scroll cadence, idle gaps, time-of-day windows — all of those became design decisions, not just technical ones.
+| Level | Description |
+|---|---|
+| Level 1 | Deal alerts only |
+| Level 2 | AI-generated drafts for messages and listings requiring user approval |
+| Level 3 | Fully automated messaging and listing actions |
 
-The downstream benefit: when Facebook redesigns its DOM (which happens), nothing breaks. The agent reads pixels.
+The goal was to let users gradually increase automation as their trust in the system grew. Rather than treating automation as an all-or-nothing feature, we treated it as a progression.
 
-### A logo where the brand idea hides in the letterforms
+### 2. Vision-based marketplace interaction
 
-`Sellii` has two `i`s back to back — *two people standing next to each other.* The mark turns those two letters into the two sides of every transaction: a seller and a buyer, mirrored. The whole product is one person handing something off to another, mediated by an agent — the wordmark says that before any copy does.
+Instead of relying only on marketplace HTML structures, the agent was designed to operate more like a human user.
 
-It's a small detail, but small details are how a 3-person team signals legitimacy. We can't ship more features than our competitors. We can ship a logo with intent.
+The system used:
 
-### Marketing as a UX surface
+- screenshots
+- GPT-4o vision analysis
+- tool calls for pricing and listing generation
+- browser interaction patterns
 
-Most AI-product marketing oversells capability and undersells habit. Reseller marketing especially leans into either dry technical promises ("real-time price arbitrage") or hype ("make $5K/month flipping Pokémon cards"). Neither earns trust.
+This approach made the system more resilient to UI changes across marketplaces and allowed the agent to operate across multiple platforms with a more flexible workflow.
 
-The Reddit and Instagram launch content I wrote takes a third path: show one specific reseller's morning routine *with* and *without* Sellii. The product abstraction (an AI agent that scans marketplaces) lands when it's anchored to a concrete habit a user already has.
+### 3. Marketing designed around user behavior
 
-The launch post is the user's first interaction with the product — before sign-up, before the dashboard. Treating it like a UX surface, not a marketing surface, is what makes the product feel real.
+For the launch strategy, I focused less on technical AI explanations and more on showing how Sellii fits into a reseller's existing routine.
 
-## What's shipped
+Instead of marketing the product as "advanced AI automation," the launch content demonstrated:
 
-**Product surface**
-- Dashboard with deal feed (sorted by predicted profit), morning report, message and listing inboxes
-- Settings: category interests, minimum-margin threshold, automation level, Facebook session sync via a Chrome mini-extension
-- Web Push notifications without an extension (VAPID)
+- how resellers normally search for deals
+- where time gets wasted
+- how Sellii reduces repetitive work
 
-**Agent interaction loop**
-- Vision-driven session runner — screenshot → GPT-4o analysis → tool call (eBay sold-comp lookup, profit calculator, message generator, listing generator) → action → human-pattern delay
-- Three-tier automation flowing through the same screens with role-aware approval flows
+This made the product easier to understand and helped position the AI agent as a practical workflow tool rather than just a technical feature.
 
-**Brand & launch surfaces**
-- Logo system built around the two-`i` two-people-trading mark; wordmark, color and type direction
-- Video scripts and short-form Reddit / Instagram launch content translating the agent into a relatable workflow
+### 4. Brand identity focused on trust
 
-**Build status (April 2026)**
-- Phases 1–7 complete: auth, agent core, marketplace integrations, alerts, message + listing drafts, eBay auto-registration
-- Phase 8 (Stripe billing) and Phase 10 (production deploy) pending
-- Currently running parallel user testing while the team refactors for lower infrastructure cost
+We also spent significant time on branding because trust was central to the product experience.
 
-## What this taught me
+The logo system was designed around mirrored "i" letterforms representing buyer and seller interaction. The visual direction aimed to make the product feel reliable, lightweight, and workflow-oriented rather than overly futuristic or experimental.
 
-That **trust is the actual product** when you ship an agent. Capabilities sell tickets; trust gradients earn retention.
+For an AI product handling marketplace actions, visual trust and clarity became important UX elements themselves.
 
-That **brand details earn legitimacy disproportionate to their cost.** A small team can't ship more features than its competitors. It can ship a logo with intent.
+## What we built
 
-That **marketing for an AI product is mostly UX work.** The launch post is the user's first interaction with the product — and treating it like a UX surface, anchored to a concrete habit instead of a capability list, is what makes the product land.
+### Product features
+
+- Marketplace deal feed ranked by predicted profit
+- Morning summary reports
+- AI-generated seller message drafts
+- AI-generated resale listing drafts
+- User-configurable automation settings
+- Web push notifications
+- Marketplace session syncing through Chrome extension support
+
+### Agent workflow
+
+- Screenshot-based marketplace analysis
+- GPT-4o vision processing
+- eBay sold-price lookup
+- Profit estimation
+- Draft generation for outreach and listings
+- Human-like interaction pacing
+
+### Branding and launch
+
+- Full logo and visual identity system
+- Reddit and Instagram launch content
+- Short-form product marketing videos
+- AI workflow demonstration scripts
+
+## Current status
+
+As of April 2026:
+
+- Core marketplace integrations and automation flows are functional
+- Authentication, alerts, and draft systems are complete
+- User testing is currently ongoing
+- Stripe billing and production deployment remain in progress
+
+The team is also continuing infrastructure optimization to reduce operating costs during scaling.
+
+## What I learned
+
+The biggest lesson from Sellii was that trust is one of the most important parts of designing AI agents.
+
+Users are often willing to accept AI assistance, but not immediate full automation. Designing gradual control and approval systems became just as important as the AI capabilities themselves.
+
+I also learned that branding and marketing strongly affect how users perceive AI products. For tools involving automation, the product needs to feel understandable and predictable before users are willing to rely on it.
+
+Overall, the project changed the way I think about AI UX. Good AI products are not only about capability. They are also about making users feel comfortable enough to adopt that capability into their daily workflow.
