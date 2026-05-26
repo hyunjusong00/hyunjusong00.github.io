@@ -129,7 +129,7 @@ export default async function Blog({
         </Link>
       </div>
       <div className="flex flex-col gap-4">
-        <h1 className="title font-[family-name:var(--font-serif)] font-semibold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
+        <h1 className="title font-semibold text-3xl md:text-4xl tracking-tighter leading-tight">
           {post.title}
         </h1>
         <p className="text-sm text-muted-foreground">
@@ -147,7 +147,7 @@ export default async function Blog({
           }}
         />
       </div>
-      <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert prose-headings:font-[family-name:var(--font-serif)] prose-headings:font-semibold prose-headings:tracking-tight prose-h2:text-foreground prose-h3:text-foreground">
+      <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
         <MDXContent code={post.mdx} components={mdxComponents} />
       </article>
 
