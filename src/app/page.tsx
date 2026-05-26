@@ -54,7 +54,7 @@ export default function Page() {
                 text="product & brand builder"
                 speed={70}
                 startDelay={700}
-                className="italic font-normal tracking-tight text-muted-foreground mt-4 text-2xl sm:text-3xl lg:text-4xl"
+                className="font-[family-name:var(--font-caveat)] font-medium tracking-tight text-pink-300 mt-3 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
