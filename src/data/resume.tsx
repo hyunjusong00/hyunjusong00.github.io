@@ -11,7 +11,7 @@ export const DATA = {
   description:
     "Product builder operating across Korea and the US. Currently leading product at Trywepp, an AI platform connecting VCs with early-stage founders, and driving design at Sellii, an AI deal-hunting agent.",
   summary:
-    "I build AI products and brand stories that travel between Korea and the US — fluent in both markets, shipping into both. Currently building [Fastlane](#projects) (an AI evaluation platform, officially adopted at Kookmin SYNC 2026) and driving design, brand, and launch content at [Sellii](#projects) (an agent that hunts underpriced marketplace deals). Before AI, Editor-in-Chief at Korea's largest student newspaper — grew Instagram 1.5× and web traffic 40%+ in one semester. Double major in MIS and Software Engineering. Based in Irvine, CA — *[authorized to work in the US.](#contact)*",
+    "I build AI products and brand stories that travel between Korea and the US — fluent in both markets, shipping into both. Currently building [Fastlane](#projects) (an AI evaluation platform, officially adopted at Kookmin SYNC 2026) and driving design, brand, and launch content at [Sellii](#projects) (an agent that hunts underpriced marketplace deals). Before AI, Editor-in-Chief at Korea's largest student newspaper — grew Instagram 1.5× and web traffic 40%+ in one semester. Double major in MIS and Software Engineering. Based in Irvine, CA.",
   avatarUrl: "/me.png",
   skills: [
     { name: "Product Management" },
