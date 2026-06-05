@@ -248,8 +248,7 @@ export const DATA = {
         "Social Media",
       ],
       links: [],
-      image: "/bizon.png",
-      imageFit: "contain" as const,
+      image: "/bizon-feed-1.png",
       video: "",
     },
     {
@@ -265,7 +264,7 @@ export const DATA = {
         "Editorial Design",
       ],
       links: [],
-      image: "/bizon-new.jpg",
+      image: "/bizon-website-2.png",
       video: "",
     },
     {
